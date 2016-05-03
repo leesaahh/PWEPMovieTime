@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		78BE4B001CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */; };
-		78BE4B021CD3F52F0032EE3F /* IMG_0003.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 78BE4B011CD3F52F0032EE3F /* IMG_0003.JPG */; };
 		78EAA6F21CD3D3A000CC0CE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA6F11CD3D3A000CC0CE9 /* main.m */; };
 		78EAA6F51CD3D3A000CC0CE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA6F41CD3D3A000CC0CE9 /* AppDelegate.m */; };
 		78EAA6FB1CD3D3A000CC0CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78EAA6F91CD3D3A000CC0CE9 /* Main.storyboard */; };
@@ -40,7 +39,6 @@
 /* Begin PBXFileReference section */
 		78BE4AFE1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePosterCollectionViewCell.h; sourceTree = "<group>"; };
 		78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePosterCollectionViewCell.m; sourceTree = "<group>"; };
-		78BE4B011CD3F52F0032EE3F /* IMG_0003.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0003.JPG; sourceTree = "<group>"; };
 		78EAA6ED1CD3D3A000CC0CE9 /* PWEPMovieTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PWEPMovieTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78EAA6F11CD3D3A000CC0CE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		78EAA6F31CD3D3A000CC0CE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				78EAA7261CD3DC0900CC0CE9 /* FavListTableVC.h */,
 				78EAA7271CD3DC0900CC0CE9 /* FavListTableVC.m */,
 				78EAA6FC1CD3D3A000CC0CE9 /* Assets.xcassets */,
-				78BE4B011CD3F52F0032EE3F /* IMG_0003.JPG */,
 				78EAA6F01CD3D3A000CC0CE9 /* Supporting Files */,
 			);
 			path = PWEPMovieTime;
@@ -261,7 +258,6 @@
 			files = (
 				78EAA7001CD3D3A000CC0CE9 /* LaunchScreen.storyboard in Resources */,
 				78EAA6FD1CD3D3A000CC0CE9 /* Assets.xcassets in Resources */,
-				78BE4B021CD3F52F0032EE3F /* IMG_0003.JPG in Resources */,
 				78EAA6FB1CD3D3A000CC0CE9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

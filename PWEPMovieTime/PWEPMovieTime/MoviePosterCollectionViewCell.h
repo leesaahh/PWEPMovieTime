@@ -12,4 +12,6 @@
 
 @interface MoviePosterCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *posterImage;
+
 @end
