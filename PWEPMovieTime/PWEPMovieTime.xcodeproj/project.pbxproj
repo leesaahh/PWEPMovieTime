@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		782AB7491CD9162800595629 /* MovieDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782AB7481CD9162800595629 /* MovieDetails.storyboard */; };
 		78BE4B001CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */; };
 		78EAA6F21CD3D3A000CC0CE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA6F11CD3D3A000CC0CE9 /* main.m */; };
 		78EAA6F51CD3D3A000CC0CE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA6F41CD3D3A000CC0CE9 /* AppDelegate.m */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		782AB7481CD9162800595629 /* MovieDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MovieDetails.storyboard; sourceTree = "<group>"; };
 		78BE4AFE1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePosterCollectionViewCell.h; sourceTree = "<group>"; };
 		78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePosterCollectionViewCell.m; sourceTree = "<group>"; };
 		78EAA6ED1CD3D3A000CC0CE9 /* PWEPMovieTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PWEPMovieTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,15 +111,16 @@
 			children = (
 				78EAA6F31CD3D3A000CC0CE9 /* AppDelegate.h */,
 				78EAA6F41CD3D3A000CC0CE9 /* AppDelegate.m */,
-				78EAA6F91CD3D3A000CC0CE9 /* Main.storyboard */,
 				78EAA6FE1CD3D3A000CC0CE9 /* LaunchScreen.storyboard */,
-				78EAA7011CD3D3A000CC0CE9 /* Info.plist */,
+				78EAA6F91CD3D3A000CC0CE9 /* Main.storyboard */,
+				782AB7481CD9162800595629 /* MovieDetails.storyboard */,
 				78EAA7231CD3DBC200CC0CE9 /* MovieCollectionVC.h */,
 				78EAA7241CD3DBC200CC0CE9 /* MovieCollectionVC.m */,
 				78BE4AFE1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.h */,
 				78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */,
 				78EAA7261CD3DC0900CC0CE9 /* FavListTableVC.h */,
 				78EAA7271CD3DC0900CC0CE9 /* FavListTableVC.m */,
+				78EAA7011CD3D3A000CC0CE9 /* Info.plist */,
 				78EAA6FC1CD3D3A000CC0CE9 /* Assets.xcassets */,
 				78EAA6F01CD3D3A000CC0CE9 /* Supporting Files */,
 			);
@@ -256,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				782AB7491CD9162800595629 /* MovieDetails.storyboard in Resources */,
 				78EAA7001CD3D3A000CC0CE9 /* LaunchScreen.storyboard in Resources */,
 				78EAA6FD1CD3D3A000CC0CE9 /* Assets.xcassets in Resources */,
 				78EAA6FB1CD3D3A000CC0CE9 /* Main.storyboard in Resources */,

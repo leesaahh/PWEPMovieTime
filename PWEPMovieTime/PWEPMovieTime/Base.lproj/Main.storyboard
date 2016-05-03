@@ -42,14 +42,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rn-gHy">
-                                            <rect key="frame" x="19" y="0.0" width="81" height="114"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="ome-rn-gHy" secondAttribute="height" multiplier="76:107" id="fe9-m2-qMK"/>
-                                            </constraints>
-                                        </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yfo-P2-SyY">
-                                            <rect key="frame" x="108" y="14" width="223" height="86"/>
+                                            <rect key="frame" x="97" y="14" width="223" height="86"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title, Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HE-xe-Xaz">
                                                     <rect key="frame" x="0.0" y="0.0" width="223" height="23"/>
@@ -77,14 +71,20 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cuteMovie" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rn-gHy">
+                                            <rect key="frame" x="19" y="6" width="70" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="ome-rn-gHy" secondAttribute="height" multiplier="76:107" constant="-4.5794392523364422" id="fe9-m2-qMK"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="8HE-xe-Xaz" firstAttribute="centerY" secondItem="iRx-q6-mnD" secondAttribute="centerY" id="46D-qB-7af"/>
-                                        <constraint firstItem="Yfo-P2-SyY" firstAttribute="leading" secondItem="ome-rn-gHy" secondAttribute="trailing" constant="8" symbolic="YES" id="9vG-me-Qyb"/>
+                                        <constraint firstItem="Yfo-P2-SyY" firstAttribute="leading" secondItem="ome-rn-gHy" secondAttribute="trailing" constant="8" id="9vG-me-Qyb"/>
                                         <constraint firstItem="Yfo-P2-SyY" firstAttribute="centerY" secondItem="iRx-q6-mnD" secondAttribute="centerY" id="Ctj-5G-cvb"/>
-                                        <constraint firstItem="Yfo-P2-SyY" firstAttribute="leading" secondItem="iRx-q6-mnD" secondAttribute="leadingMargin" constant="100" id="EOg-17-gzt"/>
+                                        <constraint firstItem="Yfo-P2-SyY" firstAttribute="leading" secondItem="iRx-q6-mnD" secondAttribute="leadingMargin" constant="89" id="EOg-17-gzt"/>
                                         <constraint firstItem="ome-rn-gHy" firstAttribute="centerY" secondItem="iRx-q6-mnD" secondAttribute="centerY" id="kf3-WB-FMy"/>
-                                        <constraint firstItem="ome-rn-gHy" firstAttribute="top" secondItem="iRx-q6-mnD" secondAttribute="top" id="mXW-G2-rab"/>
+                                        <constraint firstItem="ome-rn-gHy" firstAttribute="top" secondItem="iRx-q6-mnD" secondAttribute="top" constant="4" id="mXW-G2-rab"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">

@@ -7,6 +7,7 @@
 //
 
 #import "MovieCollectionVC.h"
+#import "MoviePosterCollectionViewCell.h"
 
 @interface MovieCollectionVC () <UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -24,15 +25,15 @@ static NSString * const reuseIdentifier = @"posterCell";
     UISearchBar *search = [[UISearchBar alloc] initWithFrame: CGRectMake(5 ,5, 300,45)];
     search.delegate = self;
     search.showsBookmarkButton = YES;
-    search.placeholder = @"Search/Select a Movie Title";
+    search.placeholder = @"Search for a Movie Title";
     
     self.navigationItem.titleView = search;
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Register cell classes EVIL?
-//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    // Register cell classes <EVIL?>
+  // [self.collectionView registerClass:[MoviePosterCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
 }
@@ -69,7 +70,8 @@ static NSString * const reuseIdentifier = @"posterCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    MoviePosterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
     
