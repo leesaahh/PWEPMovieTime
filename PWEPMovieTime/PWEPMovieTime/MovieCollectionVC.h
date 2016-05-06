@@ -10,4 +10,6 @@
 
 @interface MovieCollectionVC : UICollectionViewController
 
+@property (strong, nonatomic) NSString * searchBarText;
+
 @end

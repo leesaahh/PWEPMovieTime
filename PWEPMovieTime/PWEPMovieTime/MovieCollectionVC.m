@@ -12,6 +12,7 @@
 @interface MovieCollectionVC () <UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 
+
 @end
 
 @implementation MovieCollectionVC
@@ -46,6 +47,11 @@ static NSString * const reuseIdentifier = @"posterCell";
     NSLog(@"See More button tapped");
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.searchBarText = searchText;
+    NSLog(@"you searched: %@", self.searchBarText);
+}
+
 /*
 #pragma mark - Navigation
 
@@ -66,16 +72,32 @@ static NSString * const reuseIdentifier = @"posterCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
-    return 20;
+    return 10;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     MoviePosterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell
+    cell.posterImage.contentMode = UIViewContentModeScaleAspectFit;
+    cell.posterImage.clipsToBounds = YES;
+    cell.posterImage.image = [UIImage imageNamed:@"cuteMovie.jpg"];
     
     return cell;
+}
+
+-(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    
+    UICollectionReusableView *reusableView = nil;
+    
+    if (kind == UICollectionElementKindSectionFooter) {
+        
+        reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"seeMoreFooter" forIndexPath:indexPath];
+        
+    }
+    
+    return reusableView;
+    
+    
 }
 
 #pragma mark <UICollectionViewDelegate>

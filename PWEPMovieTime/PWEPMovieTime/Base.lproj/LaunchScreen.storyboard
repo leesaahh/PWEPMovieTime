@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="width" secondItem="xON-h4-ffA" secondAttribute="height" multiplier="240:253" id="58f-40-wiS"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Movies..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8F-GK-j9n">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8F-GK-j9n">
                                 <rect key="frame" x="74" y="116" width="173" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="173" id="2GL-b4-edE"/>

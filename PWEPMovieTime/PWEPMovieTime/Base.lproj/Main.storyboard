@@ -131,21 +131,12 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-TZ-eNh">
                                             <rect key="frame" x="-66" y="13" width="240" height="128"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cuteMovie" translatesAutoresizingMaskIntoConstraints="NO" id="Npr-OV-5as" userLabel="posterView">
-                                            <rect key="frame" x="0.0" y="0.0" width="109" height="154"/>
-                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <constraints>
-                                    <constraint firstItem="Npr-OV-5as" firstAttribute="top" secondItem="iDO-64-KuE" secondAttribute="top" id="K1k-R6-Vfg"/>
-                                    <constraint firstItem="Npr-OV-5as" firstAttribute="leading" secondItem="iDO-64-KuE" secondAttribute="leading" id="SkL-08-55l"/>
-                                    <constraint firstAttribute="bottom" secondItem="Npr-OV-5as" secondAttribute="bottom" id="c9l-9t-DZp"/>
-                                    <constraint firstAttribute="trailing" secondItem="Npr-OV-5as" secondAttribute="trailing" id="v20-2b-ue7"/>
-                                </constraints>
                                 <size key="customSize" width="109" height="154"/>
                                 <connections>
-                                    <outlet property="posterImage" destination="Npr-OV-5as" id="sjW-M3-WcW"/>
+                                    <outlet property="posterImage" destination="Nrd-TZ-eNh" id="2i3-Kc-BZX"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -153,7 +144,7 @@
                             <rect key="frame" x="0.0" y="338" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4z-Mi-1wG">
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4z-Mi-1wG">
                                     <rect key="frame" x="127" y="8" width="66" height="30"/>
                                     <state key="normal" title="See More"/>
                                     <connections>
@@ -161,6 +152,11 @@
                                     </connections>
                                 </button>
                             </subviews>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="j4z-Mi-1wG" firstAttribute="centerY" secondItem="xp9-ac-zfk" secondAttribute="centerY" id="J83-7n-Hgr"/>
+                                <constraint firstItem="j4z-Mi-1wG" firstAttribute="centerX" secondItem="xp9-ac-zfk" secondAttribute="centerX" id="X1K-bT-jrE"/>
+                            </constraints>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="Fqy-bW-LId" id="Plx-bS-2Ov"/>
@@ -185,11 +181,19 @@
             </objects>
             <point key="canvasLocation" x="1043" y="-86"/>
         </scene>
-        <!--Item-->
+        <!--MovieDetails-->
+        <scene sceneID="C1X-6J-Mbs">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MovieDetails" storyboardName="MovieDetails" id="TXP-b7-afO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bdy-9f-QbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1396" y="219"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="rwg-kg-9GR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VNz-Nu-DW7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="5es-Fn-xQe"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="5es-Fn-xQe"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nwh-Zu-Kfh">
@@ -205,12 +209,12 @@
             </objects>
             <point key="canvasLocation" x="635.5" y="624.5"/>
         </scene>
-        <!--Item-->
+        <!--Movies-->
         <scene sceneID="fhU-NN-zr0">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JhR-BH-I3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OJe-fz-8rA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="04z-hZ-F0X"/>
+                    <tabBarItem key="tabBarItem" title="Movies" image="MovieReel" id="04z-hZ-F0X"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c5N-Qu-qY7">
@@ -227,6 +231,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="MovieReel" width="50" height="50"/>
         <image name="cuteMovie" width="564" height="587"/>
     </resources>
 </document>

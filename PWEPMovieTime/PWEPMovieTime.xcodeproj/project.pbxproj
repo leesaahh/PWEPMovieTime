@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		782AB7491CD9162800595629 /* MovieDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782AB7481CD9162800595629 /* MovieDetails.storyboard */; };
+		782AB74C1CD937F300595629 /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB74B1CD937F300595629 /* MovieDetailsViewController.m */; };
+		782AB74F1CD93EE400595629 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB74E1CD93EE400595629 /* Secrets.m */; };
+		782AB7521CDC3A5900595629 /* ombdAPIclient.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB7511CDC3A5900595629 /* ombdAPIclient.m */; };
 		78BE4B001CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */; };
 		78EAA6F21CD3D3A000CC0CE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA6F11CD3D3A000CC0CE9 /* main.m */; };
 		78EAA6F51CD3D3A000CC0CE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA6F41CD3D3A000CC0CE9 /* AppDelegate.m */; };
@@ -39,6 +42,12 @@
 
 /* Begin PBXFileReference section */
 		782AB7481CD9162800595629 /* MovieDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MovieDetails.storyboard; sourceTree = "<group>"; };
+		782AB74A1CD937F300595629 /* MovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailsViewController.h; sourceTree = "<group>"; };
+		782AB74B1CD937F300595629 /* MovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
+		782AB74D1CD93EE400595629 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
+		782AB74E1CD93EE400595629 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Secrets.m; sourceTree = "<group>"; };
+		782AB7501CDC3A5900595629 /* ombdAPIclient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ombdAPIclient.h; sourceTree = "<group>"; };
+		782AB7511CDC3A5900595629 /* ombdAPIclient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ombdAPIclient.m; sourceTree = "<group>"; };
 		78BE4AFE1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePosterCollectionViewCell.h; sourceTree = "<group>"; };
 		78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePosterCollectionViewCell.m; sourceTree = "<group>"; };
 		78EAA6ED1CD3D3A000CC0CE9 /* PWEPMovieTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PWEPMovieTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,11 +127,17 @@
 				78EAA7241CD3DBC200CC0CE9 /* MovieCollectionVC.m */,
 				78BE4AFE1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.h */,
 				78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */,
+				782AB74A1CD937F300595629 /* MovieDetailsViewController.h */,
+				782AB74B1CD937F300595629 /* MovieDetailsViewController.m */,
 				78EAA7261CD3DC0900CC0CE9 /* FavListTableVC.h */,
 				78EAA7271CD3DC0900CC0CE9 /* FavListTableVC.m */,
+				782AB74D1CD93EE400595629 /* Secrets.h */,
+				782AB74E1CD93EE400595629 /* Secrets.m */,
 				78EAA7011CD3D3A000CC0CE9 /* Info.plist */,
 				78EAA6FC1CD3D3A000CC0CE9 /* Assets.xcassets */,
 				78EAA6F01CD3D3A000CC0CE9 /* Supporting Files */,
+				782AB7501CDC3A5900595629 /* ombdAPIclient.h */,
+				782AB7511CDC3A5900595629 /* ombdAPIclient.m */,
 			);
 			path = PWEPMovieTime;
 			sourceTree = "<group>";
@@ -289,8 +304,11 @@
 			files = (
 				78EAA6F51CD3D3A000CC0CE9 /* AppDelegate.m in Sources */,
 				78BE4B001CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m in Sources */,
+				782AB74F1CD93EE400595629 /* Secrets.m in Sources */,
 				78EAA7251CD3DBC200CC0CE9 /* MovieCollectionVC.m in Sources */,
 				78EAA7281CD3DC0900CC0CE9 /* FavListTableVC.m in Sources */,
+				782AB7521CDC3A5900595629 /* ombdAPIclient.m in Sources */,
+				782AB74C1CD937F300595629 /* MovieDetailsViewController.m in Sources */,
 				78EAA6F21CD3D3A000CC0CE9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

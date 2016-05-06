@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movie Details View Controller-->
         <scene sceneID="1L3-fK-w1v">
             <objects>
-                <viewController id="O2d-xV-3Ad" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieDetails" id="O2d-xV-3Ad" customClass="MovieDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DlJ-es-rwz"/>
                         <viewControllerLayoutGuide type="bottom" id="7Lo-Z9-MOq"/>
