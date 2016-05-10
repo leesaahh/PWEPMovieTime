@@ -10,4 +10,7 @@
 
 @interface FavListTableVC : UITableViewController
 
+//datastore
+//get count from datastore
+
 @end

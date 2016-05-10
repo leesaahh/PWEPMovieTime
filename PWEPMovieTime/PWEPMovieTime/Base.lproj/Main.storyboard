@@ -74,6 +74,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cuteMovie" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rn-gHy">
                                             <rect key="frame" x="19" y="6" width="70" height="100"/>
                                             <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="Nmb-5G-Zj6"/>
                                                 <constraint firstAttribute="width" secondItem="ome-rn-gHy" secondAttribute="height" multiplier="76:107" constant="-4.5794392523364422" id="fe9-m2-qMK"/>
                                             </constraints>
                                         </imageView>
@@ -81,13 +82,19 @@
                                     <constraints>
                                         <constraint firstItem="8HE-xe-Xaz" firstAttribute="centerY" secondItem="iRx-q6-mnD" secondAttribute="centerY" id="46D-qB-7af"/>
                                         <constraint firstItem="Yfo-P2-SyY" firstAttribute="leading" secondItem="ome-rn-gHy" secondAttribute="trailing" constant="8" id="9vG-me-Qyb"/>
+                                        <constraint firstItem="ome-rn-gHy" firstAttribute="bottom" secondItem="iRx-q6-mnD" secondAttribute="bottomMargin" id="BJ7-oq-jYX"/>
                                         <constraint firstItem="Yfo-P2-SyY" firstAttribute="centerY" secondItem="iRx-q6-mnD" secondAttribute="centerY" id="Ctj-5G-cvb"/>
                                         <constraint firstItem="Yfo-P2-SyY" firstAttribute="leading" secondItem="iRx-q6-mnD" secondAttribute="leadingMargin" constant="89" id="EOg-17-gzt"/>
+                                        <constraint firstItem="ome-rn-gHy" firstAttribute="top" secondItem="iRx-q6-mnD" secondAttribute="topMargin" constant="-2" id="V7i-iS-Tva"/>
                                         <constraint firstItem="ome-rn-gHy" firstAttribute="centerY" secondItem="iRx-q6-mnD" secondAttribute="centerY" id="kf3-WB-FMy"/>
                                         <constraint firstItem="ome-rn-gHy" firstAttribute="top" secondItem="iRx-q6-mnD" secondAttribute="top" constant="4" id="mXW-G2-rab"/>
+                                        <constraint firstItem="ome-rn-gHy" firstAttribute="bottom" secondItem="iRx-q6-mnD" secondAttribute="bottomMargin" id="t1X-5z-KHW"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="kf3-WB-FMy"/>
+                                            <exclude reference="mXW-G2-rab"/>
+                                            <exclude reference="t1X-5z-KHW"/>
                                             <exclude reference="46D-qB-7af"/>
                                         </mask>
                                     </variation>
@@ -109,7 +116,7 @@
         <!--Movie List-->
         <scene sceneID="chv-yv-sAe">
             <objects>
-                <collectionViewController id="Fqy-bW-LId" customClass="MovieCollectionVC" sceneMemberID="viewController">
+                <collectionViewController id="Fqy-bW-LId" customClass="MovieCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CEo-Hh-ufy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -128,12 +135,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="109" height="154"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-TZ-eNh">
-                                            <rect key="frame" x="-66" y="13" width="240" height="128"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-TZ-eNh">
+                                            <rect key="frame" x="-1" y="0.0" width="110" height="154"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="Nrd-TZ-eNh" firstAttribute="width" secondItem="iDO-64-KuE" secondAttribute="width" id="4zP-7l-CgN"/>
+                                    <constraint firstItem="Nrd-TZ-eNh" firstAttribute="centerY" secondItem="iDO-64-KuE" secondAttribute="centerY" id="FXv-Ei-4ZP"/>
+                                    <constraint firstItem="Nrd-TZ-eNh" firstAttribute="height" secondItem="iDO-64-KuE" secondAttribute="height" id="SWd-IA-kPy"/>
+                                    <constraint firstItem="Nrd-TZ-eNh" firstAttribute="centerX" secondItem="iDO-64-KuE" secondAttribute="centerX" id="epn-Fd-7Od"/>
+                                </constraints>
                                 <size key="customSize" width="109" height="154"/>
                                 <connections>
                                     <outlet property="posterImage" destination="Nrd-TZ-eNh" id="2i3-Kc-BZX"/>

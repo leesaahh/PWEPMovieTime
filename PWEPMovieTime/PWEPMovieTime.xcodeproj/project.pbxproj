@@ -10,16 +10,15 @@
 		782AB7491CD9162800595629 /* MovieDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782AB7481CD9162800595629 /* MovieDetails.storyboard */; };
 		782AB74C1CD937F300595629 /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB74B1CD937F300595629 /* MovieDetailsViewController.m */; };
 		782AB74F1CD93EE400595629 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB74E1CD93EE400595629 /* Secrets.m */; };
-		782AB7521CDC3A5900595629 /* ombdAPIclient.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB7511CDC3A5900595629 /* ombdAPIclient.m */; };
+		782AB7521CDC3A5900595629 /* omdbAPIclient.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB7511CDC3A5900595629 /* omdbAPIclient.m */; };
+		782AB7551CDC3F1500595629 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB7541CDC3F1500595629 /* Movie.m */; };
 		78BE4B001CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */; };
 		78EAA6F21CD3D3A000CC0CE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA6F11CD3D3A000CC0CE9 /* main.m */; };
 		78EAA6F51CD3D3A000CC0CE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA6F41CD3D3A000CC0CE9 /* AppDelegate.m */; };
 		78EAA6FB1CD3D3A000CC0CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78EAA6F91CD3D3A000CC0CE9 /* Main.storyboard */; };
 		78EAA6FD1CD3D3A000CC0CE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78EAA6FC1CD3D3A000CC0CE9 /* Assets.xcassets */; };
 		78EAA7001CD3D3A000CC0CE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78EAA6FE1CD3D3A000CC0CE9 /* LaunchScreen.storyboard */; };
-		78EAA70B1CD3D3A000CC0CE9 /* PWEPMovieTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA70A1CD3D3A000CC0CE9 /* PWEPMovieTimeTests.m */; };
-		78EAA7161CD3D3A000CC0CE9 /* PWEPMovieTimeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA7151CD3D3A000CC0CE9 /* PWEPMovieTimeUITests.m */; };
-		78EAA7251CD3DBC200CC0CE9 /* MovieCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA7241CD3DBC200CC0CE9 /* MovieCollectionVC.m */; };
+		78EAA7251CD3DBC200CC0CE9 /* MovieCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA7241CD3DBC200CC0CE9 /* MovieCollectionViewController.m */; };
 		78EAA7281CD3DC0900CC0CE9 /* FavListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA7271CD3DC0900CC0CE9 /* FavListTableVC.m */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +45,10 @@
 		782AB74B1CD937F300595629 /* MovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
 		782AB74D1CD93EE400595629 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
 		782AB74E1CD93EE400595629 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Secrets.m; sourceTree = "<group>"; };
-		782AB7501CDC3A5900595629 /* ombdAPIclient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ombdAPIclient.h; sourceTree = "<group>"; };
-		782AB7511CDC3A5900595629 /* ombdAPIclient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ombdAPIclient.m; sourceTree = "<group>"; };
+		782AB7501CDC3A5900595629 /* omdbAPIclient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = omdbAPIclient.h; sourceTree = "<group>"; };
+		782AB7511CDC3A5900595629 /* omdbAPIclient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = omdbAPIclient.m; sourceTree = "<group>"; };
+		782AB7531CDC3F1500595629 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		782AB7541CDC3F1500595629 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		78BE4AFE1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePosterCollectionViewCell.h; sourceTree = "<group>"; };
 		78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePosterCollectionViewCell.m; sourceTree = "<group>"; };
 		78EAA6ED1CD3D3A000CC0CE9 /* PWEPMovieTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PWEPMovieTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,13 +60,9 @@
 		78EAA6FF1CD3D3A000CC0CE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78EAA7011CD3D3A000CC0CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78EAA7061CD3D3A000CC0CE9 /* PWEPMovieTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PWEPMovieTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		78EAA70A1CD3D3A000CC0CE9 /* PWEPMovieTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PWEPMovieTimeTests.m; sourceTree = "<group>"; };
-		78EAA70C1CD3D3A000CC0CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78EAA7111CD3D3A000CC0CE9 /* PWEPMovieTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PWEPMovieTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		78EAA7151CD3D3A000CC0CE9 /* PWEPMovieTimeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PWEPMovieTimeUITests.m; sourceTree = "<group>"; };
-		78EAA7171CD3D3A000CC0CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		78EAA7231CD3DBC200CC0CE9 /* MovieCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCollectionVC.h; sourceTree = "<group>"; };
-		78EAA7241CD3DBC200CC0CE9 /* MovieCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionVC.m; sourceTree = "<group>"; };
+		78EAA7231CD3DBC200CC0CE9 /* MovieCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCollectionViewController.h; sourceTree = "<group>"; };
+		78EAA7241CD3DBC200CC0CE9 /* MovieCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionViewController.m; sourceTree = "<group>"; };
 		78EAA7261CD3DC0900CC0CE9 /* FavListTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavListTableVC.h; sourceTree = "<group>"; };
 		78EAA7271CD3DC0900CC0CE9 /* FavListTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavListTableVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,8 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				78EAA6EF1CD3D3A000CC0CE9 /* PWEPMovieTime */,
-				78EAA7091CD3D3A000CC0CE9 /* PWEPMovieTimeTests */,
-				78EAA7141CD3D3A000CC0CE9 /* PWEPMovieTimeUITests */,
 				78EAA6EE1CD3D3A000CC0CE9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,8 +118,8 @@
 				78EAA6FE1CD3D3A000CC0CE9 /* LaunchScreen.storyboard */,
 				78EAA6F91CD3D3A000CC0CE9 /* Main.storyboard */,
 				782AB7481CD9162800595629 /* MovieDetails.storyboard */,
-				78EAA7231CD3DBC200CC0CE9 /* MovieCollectionVC.h */,
-				78EAA7241CD3DBC200CC0CE9 /* MovieCollectionVC.m */,
+				78EAA7231CD3DBC200CC0CE9 /* MovieCollectionViewController.h */,
+				78EAA7241CD3DBC200CC0CE9 /* MovieCollectionViewController.m */,
 				78BE4AFE1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.h */,
 				78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */,
 				782AB74A1CD937F300595629 /* MovieDetailsViewController.h */,
@@ -136,8 +131,10 @@
 				78EAA7011CD3D3A000CC0CE9 /* Info.plist */,
 				78EAA6FC1CD3D3A000CC0CE9 /* Assets.xcassets */,
 				78EAA6F01CD3D3A000CC0CE9 /* Supporting Files */,
-				782AB7501CDC3A5900595629 /* ombdAPIclient.h */,
-				782AB7511CDC3A5900595629 /* ombdAPIclient.m */,
+				782AB7501CDC3A5900595629 /* omdbAPIclient.h */,
+				782AB7511CDC3A5900595629 /* omdbAPIclient.m */,
+				782AB7531CDC3F1500595629 /* Movie.h */,
+				782AB7541CDC3F1500595629 /* Movie.m */,
 			);
 			path = PWEPMovieTime;
 			sourceTree = "<group>";
@@ -148,24 +145,6 @@
 				78EAA6F11CD3D3A000CC0CE9 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		78EAA7091CD3D3A000CC0CE9 /* PWEPMovieTimeTests */ = {
-			isa = PBXGroup;
-			children = (
-				78EAA70A1CD3D3A000CC0CE9 /* PWEPMovieTimeTests.m */,
-				78EAA70C1CD3D3A000CC0CE9 /* Info.plist */,
-			);
-			path = PWEPMovieTimeTests;
-			sourceTree = "<group>";
-		};
-		78EAA7141CD3D3A000CC0CE9 /* PWEPMovieTimeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				78EAA7151CD3D3A000CC0CE9 /* PWEPMovieTimeUITests.m */,
-				78EAA7171CD3D3A000CC0CE9 /* Info.plist */,
-			);
-			path = PWEPMovieTimeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,9 +284,10 @@
 				78EAA6F51CD3D3A000CC0CE9 /* AppDelegate.m in Sources */,
 				78BE4B001CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m in Sources */,
 				782AB74F1CD93EE400595629 /* Secrets.m in Sources */,
-				78EAA7251CD3DBC200CC0CE9 /* MovieCollectionVC.m in Sources */,
+				78EAA7251CD3DBC200CC0CE9 /* MovieCollectionViewController.m in Sources */,
 				78EAA7281CD3DC0900CC0CE9 /* FavListTableVC.m in Sources */,
-				782AB7521CDC3A5900595629 /* ombdAPIclient.m in Sources */,
+				782AB7521CDC3A5900595629 /* omdbAPIclient.m in Sources */,
+				782AB7551CDC3F1500595629 /* Movie.m in Sources */,
 				782AB74C1CD937F300595629 /* MovieDetailsViewController.m in Sources */,
 				78EAA6F21CD3D3A000CC0CE9 /* main.m in Sources */,
 			);
@@ -317,7 +297,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78EAA70B1CD3D3A000CC0CE9 /* PWEPMovieTimeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +304,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78EAA7161CD3D3A000CC0CE9 /* PWEPMovieTimeUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

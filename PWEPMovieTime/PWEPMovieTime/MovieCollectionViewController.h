@@ -1,5 +1,5 @@
 //
-//  MovieCollectionVC.h
+//  MovieCollectionViewController.h
 //  PWEPMovieTime
 //
 //  Created by Lisa Lee on 4/29/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MovieCollectionVC : UICollectionViewController
+@interface MovieCollectionViewController : UICollectionViewController
 
 @property (strong, nonatomic) NSString * searchBarText;
 

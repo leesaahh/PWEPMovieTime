@@ -10,6 +10,7 @@
 
 @interface FavListTableVC ()
 
+
 @end
 
 @implementation FavListTableVC

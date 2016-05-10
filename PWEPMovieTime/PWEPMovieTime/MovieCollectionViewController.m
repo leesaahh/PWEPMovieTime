@@ -1,21 +1,22 @@
 //
-//  MovieCollectionVC.m
+//  MovieCollectionViewController.m
 //  PWEPMovieTime
 //
 //  Created by Lisa Lee on 4/29/16.
 //  Copyright © 2016 Lisa Lee. All rights reserved.
 //
 
-#import "MovieCollectionVC.h"
+#import "MovieCollectionViewController.h"
 #import "MoviePosterCollectionViewCell.h"
+#import "omdbAPIclient.h"
+#import "Movie.h"
 
-@interface MovieCollectionVC () <UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
-
+@interface MovieCollectionViewController () <UISearchBarDelegate>
 
 
 @end
 
-@implementation MovieCollectionVC
+@implementation MovieCollectionViewController
 
 static NSString * const reuseIdentifier = @"posterCell";
 
@@ -29,6 +30,8 @@ static NSString * const reuseIdentifier = @"posterCell";
     search.placeholder = @"Search for a Movie Title";
     
     self.navigationItem.titleView = search;
+    
+    
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -78,8 +81,7 @@ static NSString * const reuseIdentifier = @"posterCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     MoviePosterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    cell.posterImage.contentMode = UIViewContentModeScaleAspectFit;
-    cell.posterImage.clipsToBounds = YES;
+
     cell.posterImage.image = [UIImage imageNamed:@"cuteMovie.jpg"];
     
     return cell;
