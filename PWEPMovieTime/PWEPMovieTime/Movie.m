@@ -27,19 +27,10 @@
     
 }
 
--(instancetype) initWithImdbIdDictionary: (NSDictionary *)imdbIdDictionary{
-    self = [super init];
+-(void)parseOMDbDictionary {
     
-    if (self) {
-       // statements
-    }
-    return self;
+    
 }
 
 
-+(Movie *) movieFromDictionary: (NSDictionary *) movieDictionary {
-    
-    Movie *movie = [[Movie alloc] initWithSearchDictionary: movieDictionary];
-    return movie;
-}
 @end

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Movie Details View Controller-->
@@ -16,13 +17,146 @@
                     <view key="view" contentMode="scaleToFill" id="YCW-qc-Fio">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhD-QA-3ID">
+                                <rect key="frame" x="-1" y="0.0" width="376" height="266"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="M56-ah-c7v">
+                                <rect key="frame" x="19" y="282" width="338" height="103"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="bN6-H3-W0n"/>
+                                </constraints>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bN6-H3-W0n"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oPk-L3-DkV">
+                                <rect key="frame" x="18" y="408" width="338" height="84"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWY-Cx-1ak">
+                                        <rect key="frame" x="0.0" y="0.0" width="338" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVa-9M-2Yt">
+                                        <rect key="frame" x="0.0" y="21" width="338" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBQ-gP-tcV">
+                                        <rect key="frame" x="0.0" y="42" width="338" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOA-m6-sVR">
+                                        <rect key="frame" x="0.0" y="63" width="338" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="E3T-E7-kRH">
+                                <rect key="frame" x="18" y="508" width="338" height="42"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nI-EG-tsE">
+                                        <rect key="frame" x="0.0" y="0.0" width="338" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zd9-l9-q9A">
+                                        <rect key="frame" x="0.0" y="21" width="338" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnO-tS-z0q">
+                                <rect key="frame" x="18" y="565" width="338" height="30"/>
+                                <state key="normal" title="FULL PLOT DESCRIPTION"/>
+                                <connections>
+                                    <segue destination="lMH-ft-tKV" kind="show" id="v6R-Md-Rls"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qhD-QA-3ID" firstAttribute="centerX" secondItem="YCW-qc-Fio" secondAttribute="centerX" id="1vw-ej-GPc"/>
+                            <constraint firstItem="BnO-tS-z0q" firstAttribute="top" secondItem="Zd9-l9-q9A" secondAttribute="bottom" constant="15" id="Eo0-na-5jt"/>
+                            <constraint firstItem="E3T-E7-kRH" firstAttribute="width" secondItem="oPk-L3-DkV" secondAttribute="width" id="Fm7-N1-dEG"/>
+                            <constraint firstItem="xVa-9M-2Yt" firstAttribute="top" secondItem="M56-ah-c7v" secondAttribute="bottom" constant="44" id="Hxv-OH-ab7"/>
+                            <constraint firstItem="qhD-QA-3ID" firstAttribute="height" secondItem="YCW-qc-Fio" secondAttribute="height" multiplier="0.4" id="Kz8-TB-iNG"/>
+                            <constraint firstItem="E3T-E7-kRH" firstAttribute="centerX" secondItem="qhD-QA-3ID" secondAttribute="centerX" id="Nb5-w3-1Si"/>
+                            <constraint firstItem="BnO-tS-z0q" firstAttribute="width" secondItem="E3T-E7-kRH" secondAttribute="width" id="RHG-N2-6KD"/>
+                            <constraint firstItem="qhD-QA-3ID" firstAttribute="centerY" secondItem="YCW-qc-Fio" secondAttribute="centerY" multiplier="0.4" id="TgC-zS-G0l"/>
+                            <constraint firstItem="BnO-tS-z0q" firstAttribute="centerX" secondItem="qhD-QA-3ID" secondAttribute="centerX" id="XZd-a7-p7e"/>
+                            <constraint firstItem="M56-ah-c7v" firstAttribute="centerX" secondItem="YCW-qc-Fio" secondAttribute="centerX" id="Z5P-uF-ybZ"/>
+                            <constraint firstItem="oPk-L3-DkV" firstAttribute="centerX" secondItem="qhD-QA-3ID" secondAttribute="centerX" id="Zgi-JB-OYG"/>
+                            <constraint firstItem="M56-ah-c7v" firstAttribute="top" secondItem="qhD-QA-3ID" secondAttribute="bottom" constant="16" id="dk9-vv-zCR"/>
+                            <constraint firstItem="qhD-QA-3ID" firstAttribute="width" secondItem="YCW-qc-Fio" secondAttribute="width" id="job-3h-lPt"/>
+                            <constraint firstItem="oPk-L3-DkV" firstAttribute="width" secondItem="M56-ah-c7v" secondAttribute="width" id="miY-WW-h7o"/>
+                            <constraint firstItem="E3T-E7-kRH" firstAttribute="top" secondItem="oPk-L3-DkV" secondAttribute="bottom" constant="16" id="nA2-tT-NBb"/>
+                            <constraint firstItem="qhD-QA-3ID" firstAttribute="top" secondItem="DlJ-es-rwz" secondAttribute="bottom" id="pRc-De-5FP"/>
+                            <constraint firstItem="M56-ah-c7v" firstAttribute="width" secondItem="YCW-qc-Fio" secondAttribute="width" multiplier="0.9" id="seY-x7-Uhc"/>
+                            <constraint firstItem="M56-ah-c7v" firstAttribute="centerY" secondItem="YCW-qc-Fio" secondAttribute="centerY" id="x80-Uj-Zdn"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="pRc-De-5FP"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kh-1A-ahr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="399"/>
+            <point key="canvasLocation" x="305.5" y="398.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NnG-v1-hU8">
+            <objects>
+                <viewController id="lMH-ft-tKV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zgI-6V-Zbs"/>
+                        <viewControllerLayoutGuide type="bottom" id="yOZ-Zl-yuK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zC6-Du-okJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UFR-SD-LoA">
+                                <rect key="frame" x="18" y="0.0" width="338" height="334"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UFR-SD-LoA" firstAttribute="width" secondItem="zC6-Du-okJ" secondAttribute="width" multiplier="0.9" id="6pz-6D-osc"/>
+                            <constraint firstItem="UFR-SD-LoA" firstAttribute="centerY" secondItem="zC6-Du-okJ" secondAttribute="centerY" multiplier="0.5" id="DdT-7I-H65"/>
+                            <constraint firstItem="UFR-SD-LoA" firstAttribute="height" secondItem="zC6-Du-okJ" secondAttribute="height" multiplier="0.5" id="EG9-fJ-2zs"/>
+                            <constraint firstItem="UFR-SD-LoA" firstAttribute="centerX" secondItem="zC6-Du-okJ" secondAttribute="centerX" id="uku-J8-GD3"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ZT-dC-fI4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="731.5" y="398.5"/>
         </scene>
     </scenes>
 </document>

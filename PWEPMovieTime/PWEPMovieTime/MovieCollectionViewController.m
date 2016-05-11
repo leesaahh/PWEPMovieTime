@@ -13,6 +13,7 @@
 
 @interface MovieCollectionViewController () <UISearchBarDelegate>
 
+@property (strong, nonatomic) NSMutableArray *mMovies;
 
 @end
 
@@ -31,7 +32,7 @@ static NSString * const reuseIdentifier = @"posterCell";
     
     self.navigationItem.titleView = search;
     
-    
+
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -51,8 +52,28 @@ static NSString * const reuseIdentifier = @"posterCell";
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    self.searchBarText = searchText;
+    
+    NSMutableString *searchTextNoWhitespaces = (NSMutableString *)[searchText stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    
+    self.searchBarText = searchTextNoWhitespaces;
     NSLog(@"you searched: %@", self.searchBarText);
+    
+    [omdbAPIclient getMoviesforSearch:self.searchBarText withCompletion:^(NSArray *movies) {
+        
+        // pass value of movies to local mutable array
+        self.mMovies = (NSMutableArray *) movies;
+        
+        for (Movie *movie in self.mMovies) {
+            NSLog(@"Movie->CollectionView: %@", movie.title);
+        }
+        
+        // jump on main thread to reload data of collection view
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.collectionView reloadData];
+        }];
+        
+    }];
+    
 }
 
 /*
@@ -72,17 +93,39 @@ static NSString * const reuseIdentifier = @"posterCell";
     return 1;
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
-    return 10;
+    return self.mMovies.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     MoviePosterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
-    cell.posterImage.image = [UIImage imageNamed:@"cuteMovie.jpg"];
+    Movie *movie = self.mMovies[indexPath.item];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:movie.posterURL];
+    
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [queue addOperationWithBlock:^{
+        // you are now on background thread
+        // write statements to get the image
+        
+        NSData *posterData = [NSData dataWithContentsOfURL: movie.posterURL];
+      
+        UIImage *posterImage = [UIImage imageWithData:posterData];
+        
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            // you are now on the main thread
+            cell.posterImage.image = posterImage;
+            
+        }];
+    }];
+    
+    //cell.posterImage.image = [UIImage imageNamed:@"cuteMovie.jpg"];
     
     return cell;
 }
@@ -90,16 +133,14 @@ static NSString * const reuseIdentifier = @"posterCell";
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     
     UICollectionReusableView *reusableView = nil;
-    
-    if (kind == UICollectionElementKindSectionFooter) {
         
-        reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"seeMoreFooter" forIndexPath:indexPath];
-        
-    }
+        if (kind == UICollectionElementKindSectionFooter) {
+            
+            reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"seeMoreFooter" forIndexPath:indexPath];
+            
+        }
     
     return reusableView;
-    
-    
 }
 
 #pragma mark <UICollectionViewDelegate>

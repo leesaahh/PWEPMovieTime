@@ -8,6 +8,7 @@
 
 #import "omdbAPIclient.h"
 #import "MovieCollectionViewController.h"
+#import "Movie.h"
 
 NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
 
@@ -40,12 +41,33 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
             NSLog(@"Something went wrong calling OMDb! Status code %lu", httpResponse.statusCode);
         }
         
-        
         NSDictionary *searchResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         
-        NSArray *movieResults = searchResponse[@"Search"];
+        NSLog(@"response dictionary:%@",searchResponse);
         
-        completionBlock(movieResults);
+        NSArray *movieDictionaries = searchResponse[@"Search"];
+        
+        //create mutable array
+        NSMutableArray *mMovies = [NSMutableArray new];
+        
+        
+        for (NSDictionary *movie in movieDictionaries) {
+            
+            // create movie objects
+            Movie * currentMovie = [[Movie alloc] initWithSearchDictionary:movie];
+            // add to local mutable array
+            mMovies = (NSMutableArray *) [mMovies arrayByAddingObject:currentMovie];
+            
+        }
+        
+        for (Movie *movie in mMovies) {
+            NSLog(@"Created Movie: %@", movie.title);
+            
+        }
+        
+        
+        // pass back mutable array in completion block
+        completionBlock(mMovies);
         
     }];
 

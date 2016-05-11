@@ -22,11 +22,12 @@
 @property (strong, nonatomic) NSString * imdbRating;
 @property (strong, nonatomic) NSString * metascore;
 
-
 @property (strong, nonatomic) NSString * shortPlot;
 @property (strong, nonatomic) NSString * fullPlot;
 
 
 @property BOOL * favorite;
+
+-(instancetype) initWithSearchDictionary:(NSDictionary *)movieDictionary;
 
 @end
