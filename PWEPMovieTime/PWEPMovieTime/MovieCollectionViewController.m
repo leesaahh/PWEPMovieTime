@@ -104,9 +104,6 @@ static NSString * const reuseIdentifier = @"posterCell";
 
     Movie *movie = self.mMovies[indexPath.item];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:movie.posterURL];
-    
-    
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         // you are now on background thread

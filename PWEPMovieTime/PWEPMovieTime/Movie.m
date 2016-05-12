@@ -19,7 +19,7 @@
         _title = movieDictionary[@"Title"];
         _year = movieDictionary[@"Year"];
         _imbdID = movieDictionary[@"imdbID"];
-        _posterURL = movieDictionary[@"Poster"];
+        _posterURL = [NSURL URLWithString: movieDictionary[@"Poster"]];
         
     }
     
