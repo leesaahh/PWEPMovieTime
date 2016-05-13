@@ -10,7 +10,6 @@
 
 @interface FavListTableVC : UITableViewController
 
-//datastore
-//get count from datastore
+@property (strong, nonatomic) NSMutableArray *mFavorites;
 
 @end

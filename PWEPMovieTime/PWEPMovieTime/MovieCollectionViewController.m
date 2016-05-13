@@ -14,6 +14,7 @@
 @interface MovieCollectionViewController () <UISearchBarDelegate>
 
 @property (strong, nonatomic) NSMutableArray *mMovies;
+@property (strong, nonatomic) NSMutableArray *mFavorites;
 
 @end
 
@@ -56,7 +57,7 @@ static NSString * const reuseIdentifier = @"posterCell";
     NSMutableString *searchTextNoWhitespaces = (NSMutableString *)[searchText stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
     self.searchBarText = searchTextNoWhitespaces;
-    NSLog(@"you searched: %@", self.searchBarText);
+    NSLog(@"searching: %@", self.searchBarText);
     
     [omdbAPIclient getMoviesforSearch:self.searchBarText withCompletion:^(NSArray *movies) {
         
@@ -76,7 +77,7 @@ static NSString * const reuseIdentifier = @"posterCell";
     
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -84,7 +85,7 @@ static NSString * const reuseIdentifier = @"posterCell";
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -122,7 +123,6 @@ static NSString * const reuseIdentifier = @"posterCell";
         }];
     }];
     
-    //cell.posterImage.image = [UIImage imageNamed:@"cuteMovie.jpg"];
     
     return cell;
 }
@@ -138,6 +138,17 @@ static NSString * const reuseIdentifier = @"posterCell";
         }
     
     return reusableView;
+}
+
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    MoviePosterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    Movie *movie = self.mMovies[indexPath.item];
+    
+    NSLog(@"you selected: %@", movie.title);
+
+    
 }
 
 #pragma mark <UICollectionViewDelegate>

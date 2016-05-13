@@ -7,8 +7,10 @@
 //
 
 #import "FavListTableVC.h"
+#import "Movie.h"
 
 @interface FavListTableVC ()
+
 
 
 @end
@@ -39,7 +41,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    return self.mFavorites.count;
 }
 
 
@@ -47,6 +49,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    Movie *movie = self.mFavorites[indexPath.item];
+    
+    
     
     return cell;
 }
