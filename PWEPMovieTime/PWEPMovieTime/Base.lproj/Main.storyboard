@@ -138,17 +138,27 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-TZ-eNh">
                                             <rect key="frame" x="-1" y="0.0" width="110" height="154"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="movieTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="onV-rz-Ljr">
+                                            <rect key="frame" x="8" y="125" width="93" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="onV-rz-Ljr" firstAttribute="bottom" secondItem="Nrd-TZ-eNh" secondAttribute="bottom" constant="-2" id="29U-LD-jT8"/>
+                                    <constraint firstItem="onV-rz-Ljr" firstAttribute="centerX" secondItem="iDO-64-KuE" secondAttribute="centerX" id="3B5-WY-Sbz"/>
                                     <constraint firstItem="Nrd-TZ-eNh" firstAttribute="width" secondItem="iDO-64-KuE" secondAttribute="width" id="4zP-7l-CgN"/>
                                     <constraint firstItem="Nrd-TZ-eNh" firstAttribute="centerY" secondItem="iDO-64-KuE" secondAttribute="centerY" id="FXv-Ei-4ZP"/>
                                     <constraint firstItem="Nrd-TZ-eNh" firstAttribute="height" secondItem="iDO-64-KuE" secondAttribute="height" id="SWd-IA-kPy"/>
                                     <constraint firstItem="Nrd-TZ-eNh" firstAttribute="centerX" secondItem="iDO-64-KuE" secondAttribute="centerX" id="epn-Fd-7Od"/>
+                                    <constraint firstItem="onV-rz-Ljr" firstAttribute="width" secondItem="Nrd-TZ-eNh" secondAttribute="width" id="mci-kU-aRd"/>
                                 </constraints>
                                 <size key="customSize" width="109" height="154"/>
                                 <connections>
+                                    <outlet property="movieTitleLabel" destination="onV-rz-Ljr" id="4Xh-el-JBt"/>
                                     <outlet property="posterImage" destination="Nrd-TZ-eNh" id="2i3-Kc-BZX"/>
                                 </connections>
                             </collectionViewCell>

@@ -33,7 +33,6 @@ static NSString * const reuseIdentifier = @"posterCell";
     
     self.navigationItem.titleView = search;
     
-
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -63,10 +62,6 @@ static NSString * const reuseIdentifier = @"posterCell";
         
         // pass value of movies to local mutable array
         self.mMovies = (NSMutableArray *) movies;
-        
-        for (Movie *movie in self.mMovies) {
-            NSLog(@"Movie->CollectionView: %@", movie.title);
-        }
         
         // jump on main thread to reload data of collection view
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -105,24 +100,39 @@ static NSString * const reuseIdentifier = @"posterCell";
 
     Movie *movie = self.mMovies[indexPath.item];
     
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [queue addOperationWithBlock:^{
+    NSString *posterUrlString = [NSString stringWithFormat:@"%@",movie.posterURL];
+    
+    if ([posterUrlString isEqualToString:@"N/A"]) {
+        
+        cell.posterImage.image = [UIImage imageNamed:@"sadPopcorn"];
+        
+        cell.movieTitleLabel.alpha = 1;
+        
+        cell.movieTitleLabel.text = [NSString stringWithFormat:@"%@ - %@",movie.title, movie.year];
+        
+        
+    }
+    else {
+        
+        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+        [queue addOperationWithBlock:^{
         // you are now on background thread
         // write statements to get the image
         
-        NSData *posterData = [NSData dataWithContentsOfURL: movie.posterURL];
+            NSData *posterData = [NSData dataWithContentsOfURL: movie.posterURL];
       
-        UIImage *posterImage = [UIImage imageWithData:posterData];
+            UIImage *posterImage = [UIImage imageWithData:posterData];
         
-        
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
             // you are now on the main thread
-            cell.posterImage.image = posterImage;
+                cell.movieTitleLabel.alpha = 0;
+                cell.posterImage.image = posterImage;
             
         }];
     }];
     
+    }
     
     return cell;
 }
