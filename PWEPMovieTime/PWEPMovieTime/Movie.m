@@ -21,6 +21,17 @@
         _imbdID = movieDictionary[@"imdbID"];
         _posterURL = [NSURL URLWithString: movieDictionary[@"Poster"]];
         
+        _director = movieDictionary[@"Director"];
+        _writer = movieDictionary[@"Writer"];
+        _starring = movieDictionary[@"Actors"];
+        
+        _imdbRating = movieDictionary[@"imdbRating"];
+        _metascore = movieDictionary[@"Metascore"];
+        
+        _shortPlot = movieDictionary[@"Plot"];
+        _fullPlot = movieDictionary[@"Plot"];
+        
+        
     }
     
     return self;
