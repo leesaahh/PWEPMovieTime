@@ -26,8 +26,6 @@
 @property (strong, nonatomic) NSString * fullPlot;
 
 
-@property BOOL * favorite;
-
--(instancetype) initWithSearchDictionary:(NSDictionary *)movieDictionary;
+-(instancetype) initWithDictionary:(NSDictionary *)movieDictionary;
 
 @end

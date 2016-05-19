@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "MovieCollectionViewController.h"
+#import "Movie.h"
 
 @interface omdbAPIclient : NSObject
 
 
 +(void)getMoviesforSearch:(NSString *)search withCompletion:(void (^)(NSArray *movies,NSString *errorMsg))completionBlock;
+
++(void)getMoviesforIMDbID:(NSString *)IMDbID withCompletion:(void (^)(Movie *movie))completionBlock;
 
 @end

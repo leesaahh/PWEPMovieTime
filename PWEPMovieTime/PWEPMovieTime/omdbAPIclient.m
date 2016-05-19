@@ -61,7 +61,7 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
         for (NSDictionary *movie in movieDictionaries) {
             if ([movie[@"Type"] isEqualToString:@"movie"]) {
             // create movie objects
-            Movie * currentMovie = [[Movie alloc] initWithSearchDictionary:movie];
+            Movie * currentMovie = [[Movie alloc] initWithDictionary:movie];
             // add to local mutable array
             mMovies = (NSMutableArray *) [mMovies arrayByAddingObject:currentMovie];
             }
@@ -71,13 +71,50 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
             NSLog(@"Created Movie: %@", movie.title);
             
         }
-        
     
         // pass back mutable array in completion block
         completionBlock(mMovies,errorMsg);
         
     }];
 
+    [task resume];
+}
+
++(void)getMoviesforIMDbID:(NSString *)IMDbID withCompletion:(void (^)(Movie *movie))completionBlock {
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@i=%@", OMDB_URL, IMDbID];
+    
+    NSURL *url = [NSURL URLWithString: urlString];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * data, NSURLResponse *response, NSError *error) {
+        
+        NSLog(@"Creating task for search: %@", IMDbID);
+        
+        if(error) {
+            
+            NSLog(@"Error: %@", error.description);
+            return;
+        }
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        
+        if(httpResponse.statusCode != 200) {
+            
+            NSLog(@"Something went wrong calling OMDb! Status code %lu", httpResponse.statusCode);
+        }
+        
+        NSDictionary *searchResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        
+        NSLog(@"response dictionary:%@",searchResponse);
+        
+        Movie * currentMovie = [[Movie alloc] initWithDictionary:searchResponse];
+        
+        completionBlock(currentMovie);
+        
+    }];
+    
     [task resume];
 }
 

@@ -10,7 +10,7 @@
 
 @implementation Movie
 
--(instancetype) initWithSearchDictionary:(NSDictionary *)movieDictionary{
+-(instancetype) initWithDictionary:(NSDictionary *)movieDictionary{
     
     self = [super init];
     
@@ -40,7 +40,6 @@
     
     _shortPlot = movieDictionary[@"Plot"];
     _fullPlot = movieDictionary[@"Plot"];
-    
     
 }
 
