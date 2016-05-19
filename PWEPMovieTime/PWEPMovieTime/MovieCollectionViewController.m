@@ -8,13 +8,19 @@
 
 #import "MovieCollectionViewController.h"
 #import "MoviePosterCollectionViewCell.h"
+#import "MovieDetailsViewController.h"
+#import "HeaderCollectionReusableView.h"
 #import "omdbAPIclient.h"
 #import "Movie.h"
 
-@interface MovieCollectionViewController () <UISearchBarDelegate>
+@interface MovieCollectionViewController () <UISearchBarDelegate, UICollectionViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *mMovies;
 @property (strong, nonatomic) NSMutableArray *mFavorites;
+
+@property (strong, nonatomic) NSMutableString *mErrorMsg;
+@property (strong, nonatomic) NSMutableString *mIMDbID;
+
 
 @end
 
@@ -29,10 +35,9 @@ static NSString * const reuseIdentifier = @"posterCell";
     UISearchBar *search = [[UISearchBar alloc] initWithFrame: CGRectMake(5 ,5, 300,45)];
     search.delegate = self;
     search.showsBookmarkButton = YES;
-    search.placeholder = @"Search for a Movie Title";
+    search.placeholder = @"Type here to start searching";
     
     self.navigationItem.titleView = search;
-    
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -58,10 +63,14 @@ static NSString * const reuseIdentifier = @"posterCell";
     self.searchBarText = searchTextNoWhitespaces;
     NSLog(@"searching: %@", self.searchBarText);
     
-    [omdbAPIclient getMoviesforSearch:self.searchBarText withCompletion:^(NSArray *movies) {
+    [omdbAPIclient getMoviesforSearch:self.searchBarText withCompletion:^(NSArray *movies, NSString *errorMsg) {
         
         // pass value of movies to local mutable array
         self.mMovies = (NSMutableArray *) movies;
+        
+        // pass error msg of search to header label
+        self.mErrorMsg = (NSMutableString *) errorMsg;
+        NSLog(@"error message: %@", errorMsg);
         
         // jump on main thread to reload data of collection view
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -77,8 +86,24 @@ static NSString * const reuseIdentifier = @"posterCell";
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    MovieDetailsViewController *detailsVC = [segue destinationViewController];
+    
+    detailsVC.IMDbID = self.mIMDbID;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+}
+
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    MoviePosterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    Movie *movie = self.mMovies[indexPath.item];
+    
+    self.mIMDbID = (NSMutableString *) movie.imbdID;
+    
+    NSLog(@"you selected: %@", movie.title);
+    
+    
 }
 
 
@@ -137,29 +162,44 @@ static NSString * const reuseIdentifier = @"posterCell";
     return cell;
 }
 
+#pragma mark - Footer/Header
+
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     
     UICollectionReusableView *reusableView = nil;
+    
+    HeaderCollectionReusableView *headerView = nil;
         
         if (kind == UICollectionElementKindSectionFooter) {
             
             reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"seeMoreFooter" forIndexPath:indexPath];
             
+            // weird, was playing around, not sure why this works...but it does...
+            if ([indexPath indexAtPosition:self.mMovies.count] == self.mMovies.count) {
+                reusableView.alpha = 0;
+                
+            }else {
+                reusableView.alpha = 1;
+            }
+            
         }
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"startHeader" forIndexPath:indexPath];
+        
+        headerView.headerLabel.text = self.mErrorMsg;
+        
+        if ([self.mErrorMsg isEqualToString:@""]) {
+            headerView.headerLabel.text = @"Here are your movie results:";
+        }
+        
+        return headerView;
+    }
     
     return reusableView;
 }
 
-- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    MoviePosterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    Movie *movie = self.mMovies[indexPath.item];
-    
-    NSLog(@"you selected: %@", movie.title);
 
-    
-}
 
 #pragma mark <UICollectionViewDelegate>
 

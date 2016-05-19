@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -83,6 +84,13 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h7A-li-pAR">
+                                <rect key="frame" x="119" y="39" width="137" height="188"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="137" id="CTD-hN-F0Q"/>
+                                    <constraint firstAttribute="width" secondItem="h7A-li-pAR" secondAttribute="height" multiplier="137:188" id="Ldg-RJ-Jf1"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnO-tS-z0q">
                                 <rect key="frame" x="18" y="565" width="338" height="30"/>
                                 <state key="normal" title="FULL PLOT DESCRIPTION"/>
@@ -96,8 +104,10 @@
                             <constraint firstItem="qhD-QA-3ID" firstAttribute="centerX" secondItem="YCW-qc-Fio" secondAttribute="centerX" id="1vw-ej-GPc"/>
                             <constraint firstItem="BnO-tS-z0q" firstAttribute="top" secondItem="Zd9-l9-q9A" secondAttribute="bottom" constant="15" id="Eo0-na-5jt"/>
                             <constraint firstItem="E3T-E7-kRH" firstAttribute="width" secondItem="oPk-L3-DkV" secondAttribute="width" id="Fm7-N1-dEG"/>
+                            <constraint firstItem="h7A-li-pAR" firstAttribute="centerY" secondItem="qhD-QA-3ID" secondAttribute="centerY" id="FtX-Eg-1Hb"/>
                             <constraint firstItem="xVa-9M-2Yt" firstAttribute="top" secondItem="M56-ah-c7v" secondAttribute="bottom" constant="44" id="Hxv-OH-ab7"/>
                             <constraint firstItem="qhD-QA-3ID" firstAttribute="height" secondItem="YCW-qc-Fio" secondAttribute="height" multiplier="0.4" id="Kz8-TB-iNG"/>
+                            <constraint firstItem="h7A-li-pAR" firstAttribute="centerX" secondItem="qhD-QA-3ID" secondAttribute="centerX" id="NY4-vy-1y8"/>
                             <constraint firstItem="E3T-E7-kRH" firstAttribute="centerX" secondItem="qhD-QA-3ID" secondAttribute="centerX" id="Nb5-w3-1Si"/>
                             <constraint firstItem="BnO-tS-z0q" firstAttribute="width" secondItem="E3T-E7-kRH" secondAttribute="width" id="RHG-N2-6KD"/>
                             <constraint firstItem="qhD-QA-3ID" firstAttribute="centerY" secondItem="YCW-qc-Fio" secondAttribute="centerY" multiplier="0.4" id="TgC-zS-G0l"/>

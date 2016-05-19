@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -71,8 +72,8 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cuteMovie" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rn-gHy">
-                                            <rect key="frame" x="19" y="6" width="70" height="100"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cuteMovie" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rn-gHy">
+                                            <rect key="frame" x="23" y="6" width="66" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="Nmb-5G-Zj6"/>
                                                 <constraint firstAttribute="width" secondItem="ome-rn-gHy" secondAttribute="height" multiplier="76:107" constant="-4.5794392523364422" id="fe9-m2-qMK"/>
@@ -99,6 +100,9 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="TXP-b7-afO" kind="show" id="8ig-JV-wAj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -123,13 +127,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="15" id="zjJ-c2-pdy">
                             <size key="itemSize" width="120" height="170"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="56"/>
                             <size key="footerReferenceSize" width="50" height="50"/>
-                            <inset key="sectionInset" minX="40" minY="20" maxX="40" maxY="100"/>
+                            <inset key="sectionInset" minX="40" minY="0.0" maxX="40" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="posterCell" id="iDO-64-KuE" customClass="MoviePosterCollectionViewCell">
-                                <rect key="frame" x="40" y="84" width="109" height="154"/>
+                                <rect key="frame" x="40" y="120" width="109" height="154"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="109" height="154"/>
@@ -138,8 +142,8 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-TZ-eNh">
                                             <rect key="frame" x="-1" y="0.0" width="110" height="154"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="movieTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="onV-rz-Ljr">
-                                            <rect key="frame" x="8" y="125" width="93" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="movieTitleLabel" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="2" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="onV-rz-Ljr">
+                                            <rect key="frame" x="0.0" y="140" width="109" height="12"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -160,16 +164,43 @@
                                 <connections>
                                     <outlet property="movieTitleLabel" destination="onV-rz-Ljr" id="4Xh-el-JBt"/>
                                     <outlet property="posterImage" destination="Nrd-TZ-eNh" id="2i3-Kc-BZX"/>
+                                    <segue destination="TXP-b7-afO" kind="show" identifier="fromCollectionSegue" id="5L7-n7-5H4">
+                                        <segue key="commit" inheritsFrom="parent" id="Qba-Vg-qUc"/>
+                                        <segue key="preview" inheritsFrom="commit" id="s0d-XK-wc3"/>
+                                    </segue>
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="seeMoreFooter" id="xp9-ac-zfk">
-                            <rect key="frame" x="0.0" y="338" width="320" height="50"/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="startHeader" id="Us1-AV-ggC" customClass="HeaderCollectionReusableView">
+                            <rect key="frame" x="0.0" y="64" width="320" height="56"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4z-Mi-1wG">
-                                    <rect key="frame" x="127" y="8" width="66" height="30"/>
-                                    <state key="normal" title="See More"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type in the search bar above to begin searching..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMY-0N-V5V">
+                                    <rect key="frame" x="0.0" y="8" width="320" height="41"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="FMY-0N-V5V" firstAttribute="width" secondItem="Us1-AV-ggC" secondAttribute="width" id="Mld-FZ-2Jl"/>
+                                <constraint firstItem="FMY-0N-V5V" firstAttribute="centerX" secondItem="Us1-AV-ggC" secondAttribute="centerX" id="phK-m8-8Ay"/>
+                                <constraint firstItem="FMY-0N-V5V" firstAttribute="centerY" secondItem="Us1-AV-ggC" secondAttribute="centerY" id="vcL-0v-tDw"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="headerLabel" destination="FMY-0N-V5V" id="BpW-sw-uSX"/>
+                            </connections>
+                        </collectionReusableView>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="seeMoreFooter" id="xp9-ac-zfk">
+                            <rect key="frame" x="0.0" y="284" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4z-Mi-1wG">
+                                    <rect key="frame" x="126" y="10" width="68" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                    <state key="normal" title="See More">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
                                     <connections>
                                         <action selector="seeMoreTapped:" destination="Fqy-bW-LId" eventType="touchUpInside" id="dSp-Lk-0mw"/>
                                     </connections>
@@ -257,4 +288,7 @@
         <image name="MovieReel" width="58" height="50"/>
         <image name="cuteMovie" width="564" height="587"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5L7-n7-5H4"/>
+    </inferredMetricsTieBreakers>
 </document>

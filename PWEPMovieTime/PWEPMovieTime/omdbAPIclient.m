@@ -12,11 +12,12 @@
 
 NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
 
+
 @implementation omdbAPIclient
 
 // http://www.omdbapi.com/?s=Batman&page=2
 
-+(void)getMoviesforSearch:(NSString *)search withCompletion:(void (^)(NSArray *movies))completionBlock {
++(void)getMoviesforSearch:(NSString *)search withCompletion:(void (^)(NSArray *movies, NSString *errorMsg))completionBlock {
 
     NSString *urlString = [NSString stringWithFormat:@"%@s=%@&page=1", OMDB_URL, search];
 
@@ -45,6 +46,12 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
         
         NSLog(@"response dictionary:%@",searchResponse);
         
+        NSMutableString *errorMsg = [NSMutableString new];
+        
+        if (searchResponse[@"Error"]) {
+            errorMsg = searchResponse[@"Error"];
+        }
+        
         NSArray *movieDictionaries = searchResponse[@"Search"];
         
         //create mutable array
@@ -52,12 +59,12 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
         
         
         for (NSDictionary *movie in movieDictionaries) {
-            
+            if ([movie[@"Type"] isEqualToString:@"movie"]) {
             // create movie objects
             Movie * currentMovie = [[Movie alloc] initWithSearchDictionary:movie];
             // add to local mutable array
             mMovies = (NSMutableArray *) [mMovies arrayByAddingObject:currentMovie];
-            
+            }
         }
         
         for (Movie *movie in mMovies) {
@@ -67,7 +74,7 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
         
     
         // pass back mutable array in completion block
-        completionBlock(mMovies);
+        completionBlock(mMovies,errorMsg);
         
     }];
 

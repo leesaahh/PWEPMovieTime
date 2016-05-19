@@ -11,6 +11,7 @@
 
 @interface omdbAPIclient : NSObject
 
-+(void)getMoviesforSearch:(NSString *)search withCompletion:(void (^)(NSArray *movies))completionBlock;
+
++(void)getMoviesforSearch:(NSString *)search withCompletion:(void (^)(NSArray *movies,NSString *errorMsg))completionBlock;
 
 @end

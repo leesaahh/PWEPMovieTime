@@ -16,21 +16,7 @@
     
     if (self) {
         
-        _title = movieDictionary[@"Title"];
-        _year = movieDictionary[@"Year"];
-        _imbdID = movieDictionary[@"imdbID"];
-        _posterURL = [NSURL URLWithString: movieDictionary[@"Poster"]];
-        
-        _director = movieDictionary[@"Director"];
-        _writer = movieDictionary[@"Writer"];
-        _starring = movieDictionary[@"Actors"];
-        
-        _imdbRating = movieDictionary[@"imdbRating"];
-        _metascore = movieDictionary[@"Metascore"];
-        
-        _shortPlot = movieDictionary[@"Plot"];
-        _fullPlot = movieDictionary[@"Plot"];
-        
+        [self parseOMDbDictionary:movieDictionary];
         
     }
     
@@ -38,7 +24,22 @@
     
 }
 
--(void)parseOMDbDictionary {
+-(void)parseOMDbDictionary: (NSDictionary *) movieDictionary {
+    
+    _title = movieDictionary[@"Title"];
+    _year = movieDictionary[@"Year"];
+    _imbdID = movieDictionary[@"imdbID"];
+    _posterURL = [NSURL URLWithString: movieDictionary[@"Poster"]];
+    
+    _director = movieDictionary[@"Director"];
+    _writer = movieDictionary[@"Writer"];
+    _starring = movieDictionary[@"Actors"];
+    
+    _imdbRating = movieDictionary[@"imdbRating"];
+    _metascore = movieDictionary[@"Metascore"];
+    
+    _shortPlot = movieDictionary[@"Plot"];
+    _fullPlot = movieDictionary[@"Plot"];
     
     
 }
