@@ -10,6 +10,6 @@
 
 @interface MovieDetailsViewController : UIViewController
 
-@property (strong, nonatomic) NSString * IMDbID;
+@property (weak, nonatomic) NSString * IMDbID;
 
 @end

@@ -10,10 +10,14 @@
 #import "Movie.h"
 #import "omdbAPIclient.h"
 
-@interface MovieDetailsViewController ()
+@interface MovieDetailsViewController () 
+
+@property (weak, nonatomic) IBOutlet UIImageView *bkgrdPosterImage;
 
 @property (weak, nonatomic) IBOutlet UIImageView *posterImage;
-@property (weak, nonatomic) IBOutlet UITextView *plotTextView;
+@property (weak, nonatomic) IBOutlet UILabel *plotLabel;
+
+
 
 @property (weak, nonatomic) IBOutlet UILabel *releasedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *directorLabel;
@@ -30,17 +34,16 @@
 
 @implementation MovieDetailsViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+-(void)viewWillAppear:(BOOL)animated {
     
     [omdbAPIclient getMoviesforIMDbID:self.IMDbID withCompletion:^(Movie *movie) {
-
+        
         NSLog(@"Details for: %@", movie.title);
         self.navigationItem.title = movie.title;
         
         [self setMoviePosterWithURL: movie.posterURL];
-        //self.plotTextView.text = movie.shortPlot;
+        self.plotLabel.text = movie.shortPlot;
         
         self.releasedLabel.text = [NSString stringWithFormat:@"RELEASED: %@", movie.year];
         self.directorLabel.text = [NSString stringWithFormat:@"DIRECTOR: %@", movie.director];
@@ -50,13 +53,18 @@
         self.IMDbRatingLabel.text = [NSString stringWithFormat:@"IMDb Rating: %@", movie.imdbRating];
         self.metascoreLabel.text = [NSString stringWithFormat:@"Metascore: %@", movie.metascore];
         
-
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self.view reloadInputViews];
         }];
     }];
+
     
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
     
 }
 
@@ -72,6 +80,7 @@
     if ([posterUrlString isEqualToString:@"N/A"]) {
         
         self.posterImage.image = [UIImage imageNamed:@"sadPopcorn"];
+        self.bkgrdPosterImage.image = [UIImage imageNamed:@"sadPopcorn"];
         
     }
     else {
@@ -89,6 +98,7 @@
                 
                 // you are now on the main thread
                 self.posterImage.image = posterImage;
+                self.bkgrdPosterImage.image = posterImage;
                 
             }];
         }];

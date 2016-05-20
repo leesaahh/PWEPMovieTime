@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		782AB7491CD9162800595629 /* MovieDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782AB7481CD9162800595629 /* MovieDetails.storyboard */; };
 		782AB74C1CD937F300595629 /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB74B1CD937F300595629 /* MovieDetailsViewController.m */; };
 		782AB74F1CD93EE400595629 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB74E1CD93EE400595629 /* Secrets.m */; };
 		782AB7521CDC3A5900595629 /* omdbAPIclient.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB7511CDC3A5900595629 /* omdbAPIclient.m */; };
@@ -41,7 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		782AB7481CD9162800595629 /* MovieDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MovieDetails.storyboard; sourceTree = "<group>"; };
 		782AB74A1CD937F300595629 /* MovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailsViewController.h; sourceTree = "<group>"; };
 		782AB74B1CD937F300595629 /* MovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
 		782AB74D1CD93EE400595629 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 				78EAA6F41CD3D3A000CC0CE9 /* AppDelegate.m */,
 				78EAA6FE1CD3D3A000CC0CE9 /* LaunchScreen.storyboard */,
 				78EAA6F91CD3D3A000CC0CE9 /* Main.storyboard */,
-				782AB7481CD9162800595629 /* MovieDetails.storyboard */,
 				78EAA7231CD3DBC200CC0CE9 /* MovieCollectionViewController.h */,
 				78EAA7241CD3DBC200CC0CE9 /* MovieCollectionViewController.m */,
 				78BE4AFE1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.h */,
@@ -258,7 +255,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				782AB7491CD9162800595629 /* MovieDetails.storyboard in Resources */,
 				78EAA7001CD3D3A000CC0CE9 /* LaunchScreen.storyboard in Resources */,
 				78EAA6FD1CD3D3A000CC0CE9 /* Assets.xcassets in Resources */,
 				78EAA6FB1CD3D3A000CC0CE9 /* Main.storyboard in Resources */,

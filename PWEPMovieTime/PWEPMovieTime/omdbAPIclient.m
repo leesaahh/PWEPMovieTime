@@ -90,7 +90,7 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
     
     NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * data, NSURLResponse *response, NSError *error) {
         
-        NSLog(@"Creating task for search: %@", IMDbID);
+        NSLog(@"Creating task for imdbID: %@", IMDbID);
         
         if(error) {
             
