@@ -17,4 +17,6 @@
 
 +(void)getMoviesforIMDbID:(NSString *)IMDbID withCompletion:(void (^)(Movie *movie))completionBlock;
 
++(void)getMoviesforIMDbIDFullPlot:(NSString *)IMDbID withCompletion:(void (^)(NSString *fullPlot))completionBlock;
+
 @end

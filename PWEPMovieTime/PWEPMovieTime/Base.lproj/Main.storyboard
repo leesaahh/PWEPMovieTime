@@ -300,7 +300,7 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWW-Qo-AHq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWW-Qo-AHq">
                                 <rect key="frame" x="18" y="295" width="338" height="105"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="105" id="GQD-qX-viD"/>
@@ -367,9 +367,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="FULL PLOT DESCRIPTION"/>
                                 <connections>
-                                    <segue destination="Gfx-ZB-oHR" kind="show" id="R7d-R7-dcI">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <action selector="fullPlotButtonTapped:" destination="9IO-FQ-CQI" eventType="touchUpInside" id="Qf5-Kg-Bfz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -425,15 +423,16 @@
                         <outlet property="releasedLabel" destination="s7s-2z-pEl" id="lAv-L6-zJH"/>
                         <outlet property="starringLabel" destination="1Rr-bC-RZQ" id="5UK-mF-kDq"/>
                         <outlet property="writerLabel" destination="xPJ-c1-Pfw" id="dOL-bV-R29"/>
+                        <segue destination="Gfx-ZB-oHR" kind="show" identifier="fullPlotSegue" id="jli-A6-Ec1"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1479.5" y="266.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Full Plot View Controller-->
         <scene sceneID="S3w-YH-IKZ">
             <objects>
-                <viewController id="Gfx-ZB-oHR" sceneMemberID="viewController">
+                <viewController id="Gfx-ZB-oHR" customClass="FullPlotViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f4i-lq-gww"/>
                         <viewControllerLayoutGuide type="bottom" id="ldJ-iM-OhB"/>
@@ -441,13 +440,45 @@
                     <view key="view" contentMode="scaleToFill" id="EJo-OM-tvW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Plot" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Gy1-gY-p4D">
+                                <rect key="frame" x="19" y="101" width="337" height="466"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Gy1-gY-p4D" secondAttribute="height" multiplier="335:462" id="3oh-dO-Oyd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3oh-dO-Oyd"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YE-4f-nRB">
+                                <rect key="frame" x="127" y="79" width="122" height="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gy1-gY-p4D" firstAttribute="height" secondItem="EJo-OM-tvW" secondAttribute="height" multiplier="0.7" id="3Ns-6F-rfe"/>
+                            <constraint firstItem="Gy1-gY-p4D" firstAttribute="width" secondItem="EJo-OM-tvW" secondAttribute="width" multiplier="0.9" id="9AE-FY-FWU"/>
+                            <constraint firstItem="Gy1-gY-p4D" firstAttribute="centerX" secondItem="EJo-OM-tvW" secondAttribute="centerX" id="9dX-5l-jdR"/>
+                            <constraint firstItem="4YE-4f-nRB" firstAttribute="bottom" secondItem="Gy1-gY-p4D" secondAttribute="top" id="CRN-Jv-e1O"/>
+                            <constraint firstItem="4YE-4f-nRB" firstAttribute="centerX" secondItem="EJo-OM-tvW" secondAttribute="centerX" id="G93-0K-Fwj"/>
+                            <constraint firstItem="Gy1-gY-p4D" firstAttribute="centerY" secondItem="EJo-OM-tvW" secondAttribute="centerY" id="chG-Qx-mH7"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="fullPlotLabel" destination="Gy1-gY-p4D" id="aPD-MI-nJh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zLy-hd-a7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2055.5" y="252.5"/>
+            <point key="canvasLocation" x="1933.5" y="266.5"/>
         </scene>
     </scenes>
     <resources>

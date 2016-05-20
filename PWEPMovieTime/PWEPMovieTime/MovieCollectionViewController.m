@@ -21,7 +21,6 @@
 @property (strong, nonatomic) NSMutableString *mErrorMsg;
 @property (strong, nonatomic) NSMutableString *mIMDbID;
 
-
 @end
 
 @implementation MovieCollectionViewController
@@ -98,7 +97,6 @@ static NSString * const reuseIdentifier = @"posterCell";
    // MoviePosterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     Movie *movie = self.mMovies[indexPath.item];
-    
     
     self.mIMDbID = (NSMutableString *) movie.imbdID;
     

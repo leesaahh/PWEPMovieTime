@@ -13,6 +13,7 @@
 		782AB7551CDC3F1500595629 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB7541CDC3F1500595629 /* Movie.m */; };
 		78304DF31CEE306200BFF7FB /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78304DF21CEE306200BFF7FB /* HeaderCollectionReusableView.m */; };
 		78BE4B001CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */; };
+		78CAB5E91CEF60A400CD33C4 /* FullPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CAB5E81CEF60A400CD33C4 /* FullPlotViewController.m */; };
 		78EAA6F21CD3D3A000CC0CE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA6F11CD3D3A000CC0CE9 /* main.m */; };
 		78EAA6F51CD3D3A000CC0CE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA6F41CD3D3A000CC0CE9 /* AppDelegate.m */; };
 		78EAA6FB1CD3D3A000CC0CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78EAA6F91CD3D3A000CC0CE9 /* Main.storyboard */; };
@@ -52,6 +53,8 @@
 		78304DF21CEE306200BFF7FB /* HeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		78BE4AFE1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePosterCollectionViewCell.h; sourceTree = "<group>"; };
 		78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePosterCollectionViewCell.m; sourceTree = "<group>"; };
+		78CAB5E71CEF60A400CD33C4 /* FullPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FullPlotViewController.h; path = ../FullPlotViewController.h; sourceTree = "<group>"; };
+		78CAB5E81CEF60A400CD33C4 /* FullPlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FullPlotViewController.m; path = ../FullPlotViewController.m; sourceTree = "<group>"; };
 		78EAA6ED1CD3D3A000CC0CE9 /* PWEPMovieTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PWEPMovieTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78EAA6F11CD3D3A000CC0CE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		78EAA6F31CD3D3A000CC0CE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */,
 				782AB74A1CD937F300595629 /* MovieDetailsViewController.h */,
 				782AB74B1CD937F300595629 /* MovieDetailsViewController.m */,
+				78CAB5E71CEF60A400CD33C4 /* FullPlotViewController.h */,
+				78CAB5E81CEF60A400CD33C4 /* FullPlotViewController.m */,
 				78EAA7261CD3DC0900CC0CE9 /* FavListTableVC.h */,
 				78EAA7271CD3DC0900CC0CE9 /* FavListTableVC.m */,
 				782AB74D1CD93EE400595629 /* Secrets.h */,
@@ -290,6 +295,7 @@
 				78EAA7281CD3DC0900CC0CE9 /* FavListTableVC.m in Sources */,
 				782AB7521CDC3A5900595629 /* omdbAPIclient.m in Sources */,
 				782AB7551CDC3F1500595629 /* Movie.m in Sources */,
+				78CAB5E91CEF60A400CD33C4 /* FullPlotViewController.m in Sources */,
 				782AB74C1CD937F300595629 /* MovieDetailsViewController.m in Sources */,
 				78EAA6F21CD3D3A000CC0CE9 /* main.m in Sources */,
 			);

@@ -9,6 +9,7 @@
 #import "MovieDetailsViewController.h"
 #import "Movie.h"
 #import "omdbAPIclient.h"
+#import "FullPlotViewController.h"
 
 @interface MovieDetailsViewController () 
 
@@ -29,7 +30,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *metascoreLabel;
 
 
-
 @end
 
 @implementation MovieDetailsViewController
@@ -41,6 +41,8 @@
         
         NSLog(@"Details for: %@", movie.title);
         self.navigationItem.title = movie.title;
+        
+        self.IMDbID = movie.imbdID;
         
         [self setMoviePosterWithURL: movie.posterURL];
         self.plotLabel.text = movie.shortPlot;
@@ -65,6 +67,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.view reloadInputViews];
     
 }
 
@@ -106,14 +110,23 @@
     }
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    FullPlotViewController *fullPlotVC = segue.destinationViewController;
+    
+    fullPlotVC.IMDbID = self.IMDbID;
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
+- (IBAction)fullPlotButtonTapped:(id)sender {
+    
+    [self performSegueWithIdentifier:@"fullPlotSegue" sender:self];
+}
 
 @end

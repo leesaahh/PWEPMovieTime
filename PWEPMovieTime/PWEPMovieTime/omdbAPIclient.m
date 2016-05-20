@@ -118,4 +118,42 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
     [task resume];
 }
 
++(void)getMoviesforIMDbIDFullPlot:(NSString *)IMDbID withCompletion:(void (^)(NSString *fullPlot))completionBlock {
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@i=%@&plot=full&r=json", OMDB_URL, IMDbID];
+    
+    NSURL *url = [NSURL URLWithString: urlString];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * data, NSURLResponse *response, NSError *error) {
+        
+        NSLog(@"Creating task for imdbID: %@", IMDbID);
+        
+        if(error) {
+            
+            NSLog(@"Error: %@", error.description);
+            return;
+        }
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        
+        if(httpResponse.statusCode != 200) {
+            
+            NSLog(@"Something went wrong calling OMDb! Status code %lu", httpResponse.statusCode);
+        }
+        
+        NSDictionary *searchResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        
+        NSLog(@"response dictionary:%@",searchResponse);
+        
+        Movie * currentMovie = [[Movie alloc] initWithDictionary:searchResponse];
+        
+        completionBlock(currentMovie.fullPlot);
+        
+    }];
+    
+    [task resume];
+}
+
 @end
