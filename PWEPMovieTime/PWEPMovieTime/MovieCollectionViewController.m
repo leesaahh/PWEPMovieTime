@@ -211,6 +211,7 @@ static NSString * const reuseIdentifier = @"posterCell";
     NSLog(@"See More button tapped");
     
     self.currentPage++;
+    NSLog(@"current Page: %li", self.currentPage);
     
     [omdbAPIclient getMoviesforSearch:self.searchBarText forPage:self.currentPage withCompletion:^(NSArray *movies, NSString *errorMsg, NSInteger totalResults) {
         
