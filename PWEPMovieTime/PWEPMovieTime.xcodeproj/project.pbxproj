@@ -12,6 +12,8 @@
 		782AB7521CDC3A5900595629 /* omdbAPIclient.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB7511CDC3A5900595629 /* omdbAPIclient.m */; };
 		782AB7551CDC3F1500595629 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB7541CDC3F1500595629 /* Movie.m */; };
 		78304DF31CEE306200BFF7FB /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78304DF21CEE306200BFF7FB /* HeaderCollectionReusableView.m */; };
+		78A400DA1CEF9E9200E22BD2 /* FavMoviesDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A400D91CEF9E9200E22BD2 /* FavMoviesDataStore.m */; };
+		78A400DD1CEFA54700E22BD2 /* FavMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A400DC1CEFA54700E22BD2 /* FavMovieTableViewCell.m */; };
 		78BE4B001CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */; };
 		78CAB5E91CEF60A400CD33C4 /* FullPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CAB5E81CEF60A400CD33C4 /* FullPlotViewController.m */; };
 		78EAA6F21CD3D3A000CC0CE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAA6F11CD3D3A000CC0CE9 /* main.m */; };
@@ -51,6 +53,10 @@
 		782AB7541CDC3F1500595629 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		78304DF11CEE306200BFF7FB /* HeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCollectionReusableView.h; sourceTree = "<group>"; };
 		78304DF21CEE306200BFF7FB /* HeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		78A400D81CEF9E9200E22BD2 /* FavMoviesDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavMoviesDataStore.h; sourceTree = "<group>"; };
+		78A400D91CEF9E9200E22BD2 /* FavMoviesDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavMoviesDataStore.m; sourceTree = "<group>"; };
+		78A400DB1CEFA54700E22BD2 /* FavMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavMovieTableViewCell.h; sourceTree = "<group>"; };
+		78A400DC1CEFA54700E22BD2 /* FavMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavMovieTableViewCell.m; sourceTree = "<group>"; };
 		78BE4AFE1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePosterCollectionViewCell.h; sourceTree = "<group>"; };
 		78BE4AFF1CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePosterCollectionViewCell.m; sourceTree = "<group>"; };
 		78CAB5E71CEF60A400CD33C4 /* FullPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FullPlotViewController.h; path = ../FullPlotViewController.h; sourceTree = "<group>"; };
@@ -142,6 +148,10 @@
 				782AB7541CDC3F1500595629 /* Movie.m */,
 				78304DF11CEE306200BFF7FB /* HeaderCollectionReusableView.h */,
 				78304DF21CEE306200BFF7FB /* HeaderCollectionReusableView.m */,
+				78A400D81CEF9E9200E22BD2 /* FavMoviesDataStore.h */,
+				78A400D91CEF9E9200E22BD2 /* FavMoviesDataStore.m */,
+				78A400DB1CEFA54700E22BD2 /* FavMovieTableViewCell.h */,
+				78A400DC1CEFA54700E22BD2 /* FavMovieTableViewCell.m */,
 			);
 			path = PWEPMovieTime;
 			sourceTree = "<group>";
@@ -288,7 +298,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				78304DF31CEE306200BFF7FB /* HeaderCollectionReusableView.m in Sources */,
+				78A400DD1CEFA54700E22BD2 /* FavMovieTableViewCell.m in Sources */,
 				78EAA6F51CD3D3A000CC0CE9 /* AppDelegate.m in Sources */,
+				78A400DA1CEF9E9200E22BD2 /* FavMoviesDataStore.m in Sources */,
 				78BE4B001CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m in Sources */,
 				782AB74F1CD93EE400595629 /* Secrets.m in Sources */,
 				78EAA7251CD3DBC200CC0CE9 /* MovieCollectionViewController.m in Sources */,

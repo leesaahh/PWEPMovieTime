@@ -17,9 +17,9 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
 
 // http://www.omdbapi.com/?s=Batman&page=2
 
-+(void)getMoviesforSearch:(NSString *)search withCompletion:(void (^)(NSArray *movies, NSString *errorMsg))completionBlock {
++(void)getMoviesforSearch:(NSString *)search forPage:(NSInteger)page withCompletion:(void (^)(NSArray *movies, NSString *errorMsg, NSInteger totalResults))completionBlock {
 
-    NSString *urlString = [NSString stringWithFormat:@"%@s=%@&page=1", OMDB_URL, search];
+    NSString *urlString = [NSString stringWithFormat:@"%@s=%@&page=%li", OMDB_URL, search, page];
 
     NSURL *url = [NSURL URLWithString: urlString];
     
@@ -27,7 +27,7 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
     
     NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * data, NSURLResponse *response, NSError *error) {
         
-        NSLog(@"Creating task for search: %@", search);
+        NSLog(@"Creating collection view task for search: %@", search);
         
         if(error) {
             
@@ -71,9 +71,11 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
             NSLog(@"Created Movie: %@", movie.title);
             
         }
+        
+        NSInteger totalResults = [searchResponse[@"totalResults"] intValue];
     
         // pass back mutable array in completion block
-        completionBlock(mMovies,errorMsg);
+        completionBlock(mMovies,errorMsg,totalResults);
         
     }];
 
@@ -90,7 +92,7 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
     
     NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * data, NSURLResponse *response, NSError *error) {
         
-        NSLog(@"Creating task for imdbID: %@", IMDbID);
+        NSLog(@"Creating detail view task for imdbID: %@", IMDbID);
         
         if(error) {
             
@@ -128,7 +130,7 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
     
     NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * data, NSURLResponse *response, NSError *error) {
         
-        NSLog(@"Creating task for imdbID: %@", IMDbID);
+        NSLog(@"Creating full plot task for imdbID: %@", IMDbID);
         
         if(error) {
             

@@ -10,6 +10,4 @@
 
 @interface FavListTableVC : UITableViewController
 
-@property (weak, nonatomic) NSMutableArray *mFavorites;
-
 @end

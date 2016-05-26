@@ -21,6 +21,9 @@
 @property (strong, nonatomic) NSMutableString *mErrorMsg;
 @property (strong, nonatomic) NSMutableString *mIMDbID;
 
+@property (assign, nonatomic) NSInteger currentPage;
+@property (assign, nonatomic) NSInteger totalPages;
+
 @end
 
 @implementation MovieCollectionViewController
@@ -38,6 +41,8 @@ static NSString * const reuseIdentifier = @"posterCell";
     
     self.navigationItem.titleView = search;
     
+    self.currentPage = 1;
+    
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -51,18 +56,18 @@ static NSString * const reuseIdentifier = @"posterCell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)seeMoreTapped:(id)sender {
-    NSLog(@"See More button tapped");
-}
+
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    self.currentPage = 1;
     
     NSMutableString *searchTextNoWhitespaces = (NSMutableString *)[searchText stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
     self.searchBarText = searchTextNoWhitespaces;
     NSLog(@"searching: %@", self.searchBarText);
     
-    [omdbAPIclient getMoviesforSearch:self.searchBarText withCompletion:^(NSArray *movies, NSString *errorMsg) {
+    [omdbAPIclient getMoviesforSearch:self.searchBarText forPage:self.currentPage withCompletion:^(NSArray *movies, NSString *errorMsg, NSInteger totalResults) {
         
         // pass value of movies to local mutable array
         self.mMovies = (NSMutableArray *) movies;
@@ -70,6 +75,8 @@ static NSString * const reuseIdentifier = @"posterCell";
         // pass error msg of search to header label
         self.mErrorMsg = (NSMutableString *) errorMsg;
         NSLog(@"error message: %@", errorMsg);
+        
+        self.totalPages = totalResults;
         
         // jump on main thread to reload data of collection view
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -200,7 +207,34 @@ static NSString * const reuseIdentifier = @"posterCell";
     return reusableView;
 }
 
-
+- (IBAction)seeMoreTapped:(id)sender {
+    NSLog(@"See More button tapped");
+    
+    self.currentPage++;
+    
+    [omdbAPIclient getMoviesforSearch:self.searchBarText forPage:self.currentPage withCompletion:^(NSArray *movies, NSString *errorMsg, NSInteger totalResults) {
+        
+        [self.mMovies arrayByAddingObjectsFromArray:movies];
+        
+        NSIndexSet *section = [NSIndexSet indexSetWithIndex:0];
+        
+        NSLog(@"mMovies count: %li",self.mMovies.count);
+        
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.collectionView reloadData];
+            [self.collectionView reloadInputViews];
+            [self.collectionView performBatchUpdates:^{
+                [self.collectionView reloadSections: section];
+            } completion:nil];
+        }];
+        
+    }];
+    
+    // totalPages = ceil(totalResults/10) = (totalResults+10-1)/10
+    // if currentPage < totalPages, show footer, currentPage++
+    // if currentPage = totalPages, hide footer
+}
 
 #pragma mark <UICollectionViewDelegate>
 

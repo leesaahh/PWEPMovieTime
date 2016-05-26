@@ -10,6 +10,7 @@
 #import "Movie.h"
 #import "omdbAPIclient.h"
 #import "FullPlotViewController.h"
+#import "FavMoviesDataStore.h"
 
 @interface MovieDetailsViewController () 
 
@@ -128,5 +129,21 @@
     
     [self performSegueWithIdentifier:@"fullPlotSegue" sender:self];
 }
+
+#pragma mark - Favorite
+- (IBAction)favoriteTapped:(id)sender {
+    
+    [omdbAPIclient getMoviesforIMDbID:self.IMDbID withCompletion:^(Movie *movie) {
+        
+        FavMoviesDataStore *dataStore = [FavMoviesDataStore sharedDataStore];
+        [dataStore.mFavMovies addObject:movie];
+        NSLog(@"Favorite added: %@", movie.title);
+        
+    }];
+
+    
+}
+
+
 
 @end

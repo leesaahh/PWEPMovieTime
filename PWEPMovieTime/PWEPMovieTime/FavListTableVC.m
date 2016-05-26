@@ -8,17 +8,32 @@
 
 #import "FavListTableVC.h"
 #import "Movie.h"
+#import "FavMoviesDataStore.h"
+#import "FavMovieTableViewCell.h"
 
 @interface FavListTableVC ()
 
+@property (strong, nonatomic) NSMutableArray* favMovies;
 
 
 @end
 
 @implementation FavListTableVC
 
+-(void)viewWillAppear:(BOOL)animated {
+    
+    FavMoviesDataStore *dataStore = [FavMoviesDataStore sharedDataStore];
+    
+    self.favMovies = dataStore.mFavMovies;
+    
+    NSLog(@"Your stored favorites:%@",self.favMovies);
+    
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -41,17 +56,51 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    return self.favMovies.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
+    
+    FavMovieTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    Movie *movie = self.mFavorites[indexPath.item];
+    Movie *movie = self.favMovies[indexPath.row];
+    NSLog(@"Row %li: %@", indexPath.row, movie.title);
     
+    cell.titleYearLabel.text = [NSString stringWithFormat:@"%@ - %@", movie.title, movie.year];
+    cell.directorLabel.text = [NSString stringWithFormat:@"Director: %@", movie.director];
+    cell.writerLabel.text = [NSString stringWithFormat:@"Writers: %@",movie.writer];
+    cell.starringLabel.text = [NSString stringWithFormat:@"Starring: %@",movie.starring];
     
+    NSString *posterUrlString = [NSString stringWithFormat:@"%@",movie.posterURL];
+    
+    if ([posterUrlString isEqualToString:@"N/A"]) {
+        
+        cell.posterImage.image = [UIImage imageNamed:@"sadPopcorn"];
+        
+    }
+    else {
+        
+        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+        [queue addOperationWithBlock:^{
+            // you are now on background thread
+            // write statements to get the image
+            
+            NSData *posterData = [NSData dataWithContentsOfURL: movie.posterURL];
+            
+            UIImage *posterImage = [UIImage imageWithData:posterData];
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                
+                // you are now on the main thread
+                cell.posterImage.image = posterImage;
+                
+            }];
+        }];
+        
+    }
+
     
     return cell;
 }

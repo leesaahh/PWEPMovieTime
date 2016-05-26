@@ -13,7 +13,7 @@
 @interface omdbAPIclient : NSObject
 
 
-+(void)getMoviesforSearch:(NSString *)search withCompletion:(void (^)(NSArray *movies,NSString *errorMsg))completionBlock;
++(void)getMoviesforSearch:(NSString *)search forPage:(NSInteger)page withCompletion:(void (^)(NSArray *movies,NSString *errorMsg, NSInteger totalResults))completionBlock;
 
 +(void)getMoviesforIMDbID:(NSString *)IMDbID withCompletion:(void (^)(Movie *movie))completionBlock;
 
