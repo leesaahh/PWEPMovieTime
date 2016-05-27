@@ -215,19 +215,20 @@ static NSString * const reuseIdentifier = @"posterCell";
     
     [omdbAPIclient getMoviesforSearch:self.searchBarText forPage:self.currentPage withCompletion:^(NSArray *movies, NSString *errorMsg, NSInteger totalResults) {
         
-        [self.mMovies arrayByAddingObjectsFromArray:movies];
+        NSLog(@"next page movie array count: %li", movies.count);
+        
+        self.mMovies = (NSMutableArray *)[self.mMovies arrayByAddingObjectsFromArray:movies];
         
         NSIndexSet *section = [NSIndexSet indexSetWithIndex:0];
         
         NSLog(@"mMovies count: %li",self.mMovies.count);
         
         
+        
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.collectionView reloadData];
-            [self.collectionView reloadInputViews];
-            [self.collectionView performBatchUpdates:^{
+            
                 [self.collectionView reloadSections: section];
-            } completion:nil];
+        
         }];
         
     }];
