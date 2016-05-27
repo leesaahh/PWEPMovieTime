@@ -76,7 +76,8 @@ static NSString * const reuseIdentifier = @"posterCell";
         self.mErrorMsg = (NSMutableString *) errorMsg;
         NSLog(@"error message: %@", errorMsg);
         
-        self.totalPages = totalResults;
+        self.totalPages = (totalResults+9)/10;
+        // totalPages = ceil(totalResults/10) = (totalResults+10-1)/10
         
         // jump on main thread to reload data of collection view
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -182,12 +183,16 @@ static NSString * const reuseIdentifier = @"posterCell";
             
             reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"seeMoreFooter" forIndexPath:indexPath];
             
+            // if currentPage < totalPages, show footer, currentPage++
+            // if currentPage = totalPages, hide footer
+            
             // weird, was playing around, not sure why this works...but it does...
-            if ([indexPath indexAtPosition:self.mMovies.count] == self.mMovies.count) {
-                reusableView.alpha = 0;
-                
-            }else {
+            if (self.currentPage < self.totalPages) {
                 reusableView.alpha = 1;
+                
+            }else if (self.currentPage >= self.totalPages)
+            {
+                reusableView.alpha = 0;
             }
             
         }
@@ -224,18 +229,21 @@ static NSString * const reuseIdentifier = @"posterCell";
         NSLog(@"mMovies count: %li",self.mMovies.count);
         
         
+        // if currentPage < totalPages, show footer, currentPage++
+        // if currentPage = totalPages, hide footer
+
+        NSLog(@"total pages: %li, current page: %li", self.totalPages, self.currentPage);
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
-                [self.collectionView reloadSections: section];
+            [self.collectionView reloadSections: section];
+            [self.collectionView reloadData];
+            [self.collectionView reloadInputViews];
         
         }];
         
     }];
     
-    // totalPages = ceil(totalResults/10) = (totalResults+10-1)/10
-    // if currentPage < totalPages, show footer, currentPage++
-    // if currentPage = totalPages, hide footer
 }
 
 #pragma mark <UICollectionViewDelegate>
