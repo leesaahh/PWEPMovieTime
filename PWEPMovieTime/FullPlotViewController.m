@@ -24,9 +24,6 @@
         
         self.fullPlotLabel.text = fullPlot;
         
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.view reloadInputViews];
-        }];
     }];
     
     
@@ -36,7 +33,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.view reloadInputViews];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self.view reloadInputViews];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
