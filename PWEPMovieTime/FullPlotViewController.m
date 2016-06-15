@@ -22,7 +22,10 @@
     
     [omdbAPIclient getMoviesforIMDbIDFullPlot:self.IMDbID withCompletion:^(NSString *fullPlot) {
         
-        self.fullPlotLabel.text = fullPlot;
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            self.fullPlotLabel.text = fullPlot;
+            
+        }];
         
     }];
     
@@ -33,9 +36,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [self.view reloadInputViews];
-    }];
+    
     
 }
 

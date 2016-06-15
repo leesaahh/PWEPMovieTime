@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSMutableArray *mFavorites;
 
 @property (strong, nonatomic) NSMutableString *mErrorMsg;
-@property (strong, nonatomic) NSMutableString *mIMDbID;
+@property (strong, nonatomic) NSString *mIMDbID;
 
 @property (assign, nonatomic) NSInteger currentPage;
 @property (assign, nonatomic) NSInteger totalPages;
@@ -56,6 +56,8 @@ static NSString * const reuseIdentifier = @"posterCell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -106,7 +108,7 @@ static NSString * const reuseIdentifier = @"posterCell";
     
     Movie *movie = self.mMovies[indexPath.item];
     
-    self.mIMDbID = (NSMutableString *) movie.imbdID;
+    self.mIMDbID = movie.imbdID;
     
     [self performSegueWithIdentifier:@"fromCollectionSegue" sender:self];
     
@@ -190,7 +192,7 @@ static NSString * const reuseIdentifier = @"posterCell";
             if (self.currentPage < self.totalPages) {
                 reusableView.alpha = 1;
                 
-            }else if (self.currentPage >= self.totalPages)
+            }else if (self.currentPage  >= self.totalPages)
             {
                 reusableView.alpha = 0;
             }

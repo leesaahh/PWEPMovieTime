@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BE558121D110271009D3A8C /* FavMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BE558101D110271009D3A8C /* FavMovie.xcdatamodeld */; };
+		1BE558171D11049E009D3A8C /* FavMovie+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE558141D11049E009D3A8C /* FavMovie+CoreDataProperties.m */; };
+		1BE558181D11049E009D3A8C /* FavMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE558161D11049E009D3A8C /* FavMovie.m */; };
 		782AB74C1CD937F300595629 /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB74B1CD937F300595629 /* MovieDetailsViewController.m */; };
 		782AB74F1CD93EE400595629 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB74E1CD93EE400595629 /* Secrets.m */; };
 		782AB7521CDC3A5900595629 /* omdbAPIclient.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AB7511CDC3A5900595629 /* omdbAPIclient.m */; };
@@ -43,6 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BE558111D110271009D3A8C /* FavMovie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavMovie.xcdatamodel; sourceTree = "<group>"; };
+		1BE558131D11049E009D3A8C /* FavMovie+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FavMovie+CoreDataProperties.h"; path = "../FavMovie+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1BE558141D11049E009D3A8C /* FavMovie+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FavMovie+CoreDataProperties.m"; path = "../FavMovie+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1BE558151D11049E009D3A8C /* FavMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavMovie.h; path = ../FavMovie.h; sourceTree = "<group>"; };
+		1BE558161D11049E009D3A8C /* FavMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavMovie.m; path = ../FavMovie.m; sourceTree = "<group>"; };
 		782AB74A1CD937F300595629 /* MovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailsViewController.h; sourceTree = "<group>"; };
 		782AB74B1CD937F300595629 /* MovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
 		782AB74D1CD93EE400595629 /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
@@ -152,6 +160,11 @@
 				78A400D91CEF9E9200E22BD2 /* FavMoviesDataStore.m */,
 				78A400DB1CEFA54700E22BD2 /* FavMovieTableViewCell.h */,
 				78A400DC1CEFA54700E22BD2 /* FavMovieTableViewCell.m */,
+				1BE558101D110271009D3A8C /* FavMovie.xcdatamodeld */,
+				1BE558131D11049E009D3A8C /* FavMovie+CoreDataProperties.h */,
+				1BE558141D11049E009D3A8C /* FavMovie+CoreDataProperties.m */,
+				1BE558151D11049E009D3A8C /* FavMovie.h */,
+				1BE558161D11049E009D3A8C /* FavMovie.m */,
 			);
 			path = PWEPMovieTime;
 			sourceTree = "<group>";
@@ -299,6 +312,8 @@
 			files = (
 				78304DF31CEE306200BFF7FB /* HeaderCollectionReusableView.m in Sources */,
 				78A400DD1CEFA54700E22BD2 /* FavMovieTableViewCell.m in Sources */,
+				1BE558181D11049E009D3A8C /* FavMovie.m in Sources */,
+				1BE558121D110271009D3A8C /* FavMovie.xcdatamodeld in Sources */,
 				78EAA6F51CD3D3A000CC0CE9 /* AppDelegate.m in Sources */,
 				78A400DA1CEF9E9200E22BD2 /* FavMoviesDataStore.m in Sources */,
 				78BE4B001CD3F25D0032EE3F /* MoviePosterCollectionViewCell.m in Sources */,
@@ -310,6 +325,7 @@
 				78CAB5E91CEF60A400CD33C4 /* FullPlotViewController.m in Sources */,
 				782AB74C1CD937F300595629 /* MovieDetailsViewController.m in Sources */,
 				78EAA6F21CD3D3A000CC0CE9 /* main.m in Sources */,
+				1BE558171D11049E009D3A8C /* FavMovie+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PWEPMovieTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FIS.PWEPMovieTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -464,6 +481,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PWEPMovieTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FIS.PWEPMovieTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -556,6 +574,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1BE558101D110271009D3A8C /* FavMovie.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1BE558111D110271009D3A8C /* FavMovie.xcdatamodel */,
+			);
+			currentVersion = 1BE558111D110271009D3A8C /* FavMovie.xcdatamodel */;
+			path = FavMovie.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 78EAA6E51CD3D3A000CC0CE9 /* Project object */;
 }

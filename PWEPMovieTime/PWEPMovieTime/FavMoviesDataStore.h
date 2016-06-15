@@ -8,11 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "Movie.h"
+#import <CoreData/CoreData.h>
 
 @interface FavMoviesDataStore : NSObject
 
 +(FavMoviesDataStore *)sharedDataStore;
 
-@property (strong, nonatomic) NSMutableArray *mFavMovies;
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+
+//@property (strong, nonatomic) NSMutableArray *mFavMovies;
+
+- (void)saveContext;
 
 @end

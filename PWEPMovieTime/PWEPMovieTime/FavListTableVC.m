@@ -10,21 +10,29 @@
 #import "Movie.h"
 #import "FavMoviesDataStore.h"
 #import "FavMovieTableViewCell.h"
+#import "FavMovie.h"
 
 @interface FavListTableVC ()
 
-@property (strong, nonatomic) NSMutableArray* favMovies;
+@property (strong, nonatomic) NSArray* favMovies;
 
 
 @end
 
 @implementation FavListTableVC
 
+-(void)fetchAllFavMovies {
+    
+    NSFetchRequest *allFavMoviesRequest = [NSFetchRequest fetchRequestWithEntityName:@"FavMovie"];
+    FavMoviesDataStore *datastore = [FavMoviesDataStore sharedDataStore];
+    
+    self.favMovies = [datastore.managedObjectContext executeFetchRequest:allFavMoviesRequest error:nil];
+    
+}
+
 -(void)viewWillAppear:(BOOL)animated {
     
-    FavMoviesDataStore *dataStore = [FavMoviesDataStore sharedDataStore];
-    
-    self.favMovies = dataStore.mFavMovies;
+    [self fetchAllFavMovies];
     
     NSLog(@"Your stored favorites:%@",self.favMovies);
     
@@ -65,7 +73,7 @@
     FavMovieTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    Movie *movie = self.favMovies[indexPath.row];
+    FavMovie *movie = self.favMovies[indexPath.row];
     NSLog(@"Row %li: %@", indexPath.row, movie.title);
     
     cell.titleYearLabel.text = [NSString stringWithFormat:@"%@ - %@", movie.title, movie.year];
@@ -73,9 +81,8 @@
     cell.writerLabel.text = [NSString stringWithFormat:@"Writers: %@",movie.writer];
     cell.starringLabel.text = [NSString stringWithFormat:@"Starring: %@",movie.starring];
     
-    NSString *posterUrlString = [NSString stringWithFormat:@"%@",movie.posterURL];
     
-    if ([posterUrlString isEqualToString:@"N/A"]) {
+    if ([movie.posterURL isEqualToString:@"N/A"]) {
         
         cell.posterImage.image = [UIImage imageNamed:@"sadPopcorn"];
         
@@ -87,7 +94,9 @@
             // you are now on background thread
             // write statements to get the image
             
-            NSData *posterData = [NSData dataWithContentsOfURL: movie.posterURL];
+            NSURL *posterURL = [NSURL URLWithString:movie.posterURL];
+            
+            NSData *posterData = [NSData dataWithContentsOfURL: posterURL];
             
             UIImage *posterImage = [UIImage imageWithData:posterData];
             

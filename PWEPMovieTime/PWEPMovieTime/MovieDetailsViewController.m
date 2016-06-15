@@ -11,6 +11,8 @@
 #import "omdbAPIclient.h"
 #import "FullPlotViewController.h"
 #import "FavMoviesDataStore.h"
+#import "FavMovie.h"
+#import <CoreData/CoreData.h>
 
 @interface MovieDetailsViewController () 
 
@@ -40,25 +42,22 @@
     
     [omdbAPIclient getMoviesforIMDbID:self.IMDbID withCompletion:^(Movie *movie) {
         
-        NSLog(@"Details for: %@", movie.title);
-        self.navigationItem.title = movie.title;
-        
-        self.IMDbID = movie.imbdID;
-        
-        [self setMoviePosterWithURL: movie.posterURL];
-        self.plotLabel.text = movie.shortPlot;
-        
-        self.releasedLabel.text = [NSString stringWithFormat:@"RELEASED: %@", movie.year];
-        self.directorLabel.text = [NSString stringWithFormat:@"DIRECTOR: %@", movie.director];
-        self.writerLabel.text = [NSString stringWithFormat:@"WRITER: %@", movie.writer];
-        self.starringLabel.text = [NSString stringWithFormat:@"STARRING: %@", movie.starring];
-        
-        self.IMDbRatingLabel.text = [NSString stringWithFormat:@"IMDb Rating: %@", movie.imdbRating];
-        self.metascoreLabel.text = [NSString stringWithFormat:@"Metascore: %@", movie.metascore];
-        
-        
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.view reloadInputViews];
+            NSLog(@"Details for: %@", movie.title);
+            self.navigationItem.title = movie.title;
+            
+            self.IMDbID = movie.imbdID;
+            
+            [self setMoviePosterWithURL: movie.posterURL];
+            self.plotLabel.text = movie.shortPlot;
+            
+            self.releasedLabel.text = [NSString stringWithFormat:@"RELEASED: %@", movie.year];
+            self.directorLabel.text = [NSString stringWithFormat:@"DIRECTOR: %@", movie.director];
+            self.writerLabel.text = [NSString stringWithFormat:@"WRITER: %@", movie.writer];
+            self.starringLabel.text = [NSString stringWithFormat:@"STARRING: %@", movie.starring];
+            
+            self.IMDbRatingLabel.text = [NSString stringWithFormat:@"IMDb Rating: %@", movie.imdbRating];
+            self.metascoreLabel.text = [NSString stringWithFormat:@"Metascore: %@", movie.metascore];
         }];
     }];
 
@@ -68,8 +67,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self.view reloadInputViews];
     
 }
 
@@ -131,12 +128,27 @@
 }
 
 #pragma mark - Favorite
+
 - (IBAction)favoriteTapped:(id)sender {
     
     [omdbAPIclient getMoviesforIMDbID:self.IMDbID withCompletion:^(Movie *movie) {
         
         FavMoviesDataStore *dataStore = [FavMoviesDataStore sharedDataStore];
-        [dataStore.mFavMovies addObject:movie];
+        
+//        [dataStore.mFavMovies addObject:movie];
+        
+        FavMovie *favMovie = [NSEntityDescription insertNewObjectForEntityForName:@"FavMovie"
+                                                           inManagedObjectContext: dataStore.managedObjectContext];
+        favMovie.title = movie.title;
+        favMovie.imdbID = movie.imbdID;
+        favMovie.writer = movie.writer;
+        favMovie.director = movie.director;
+        favMovie.posterURL = [movie.posterURL absoluteString];
+        favMovie.year = movie.year;
+        favMovie.starring = movie.starring;
+        
+        [dataStore saveContext];
+        
         NSLog(@"Favorite added: %@", movie.title);
         
     }];

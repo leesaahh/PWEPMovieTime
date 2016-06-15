@@ -59,13 +59,14 @@ NSString * const OMDB_URL = @"http://www.omdbapi.com/?";
         
         
         for (NSDictionary *movie in movieDictionaries) {
-            if ([movie[@"Type"] isEqualToString:@"movie"]) {
+//            if ([movie[@"Type"] isEqualToString:@"movie"]) {
             // create movie objects
             Movie * currentMovie = [[Movie alloc] initWithDictionary:movie];
             // add to local mutable array
+//                [mMovies addObject:currentMovie];
             mMovies = (NSMutableArray *) [mMovies arrayByAddingObject:currentMovie];
             }
-        }
+//        }
         
         for (Movie *movie in mMovies) {
             NSLog(@"Created Movie: %@", movie.title);
