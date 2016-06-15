@@ -11,10 +11,14 @@
 #import "FavMoviesDataStore.h"
 #import "FavMovieTableViewCell.h"
 #import "FavMovie.h"
+#import "MovieDetailsViewController.h"
+#import <CoreData/CoreData.h>
 
 @interface FavListTableVC ()
 
-@property (strong, nonatomic) NSArray* favMovies;
+@property (strong, nonatomic) NSMutableArray* favMovies;
+
+@property (strong, nonatomic) NSString *mIMDbID;
 
 
 @end
@@ -26,7 +30,7 @@
     NSFetchRequest *allFavMoviesRequest = [NSFetchRequest fetchRequestWithEntityName:@"FavMovie"];
     FavMoviesDataStore *datastore = [FavMoviesDataStore sharedDataStore];
     
-    self.favMovies = [datastore.managedObjectContext executeFetchRequest:allFavMoviesRequest error:nil];
+    self.favMovies = (NSMutableArray *)[datastore.managedObjectContext executeFetchRequest:allFavMoviesRequest error:nil];
     
 }
 
@@ -34,20 +38,18 @@
     
     [self fetchAllFavMovies];
     
-    NSLog(@"Your stored favorites:%@",self.favMovies);
-    
     [self.tableView reloadData];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    NSLog(@"view did load");
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,7 +65,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
+    [self fetchAllFavMovies];
+    
     return self.favMovies.count;
 }
 
@@ -115,25 +119,45 @@
 }
 
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    FavMoviesDataStore *datastore = [FavMoviesDataStore sharedDataStore];
+
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        
+        // Delete the favMovie from the datastore
+        [datastore.managedObjectContext deleteObject:[self.favMovies objectAtIndex:indexPath.row]];
+        
+        // handle error
+        NSError *error = nil;
+        if (![datastore.managedObjectContext save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        // Remove row from table view
+    
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+//         [self.tableView reloadData];
+
+    }
+    
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -149,14 +173,27 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    MovieDetailsViewController *detailsVC = segue.destinationViewController;
+    
+    detailsVC.IMDbID = self.mIMDbID;
+
 }
-*/
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    FavMovie *favMovie = self.favMovies[indexPath.item];
+    
+    self.mIMDbID = favMovie.imdbID;
+    
+    [self performSegueWithIdentifier:@"fromFavListSegue" sender:self];
+    
+    NSLog(@"you selected: %@", favMovie.title);
+}
 
 @end
