@@ -16,7 +16,7 @@
 
 @interface FavListTableVC ()
 
-@property (strong, nonatomic) NSMutableArray* favMovies;
+@property (strong, nonatomic) NSArray* favMovies;
 
 @property (strong, nonatomic) NSString *mIMDbID;
 
@@ -30,7 +30,7 @@
     NSFetchRequest *allFavMoviesRequest = [NSFetchRequest fetchRequestWithEntityName:@"FavMovie"];
     FavMoviesDataStore *datastore = [FavMoviesDataStore sharedDataStore];
     
-    self.favMovies = (NSMutableArray *)[datastore.managedObjectContext executeFetchRequest:allFavMoviesRequest error:nil];
+    self.favMovies = [datastore.managedObjectContext executeFetchRequest:allFavMoviesRequest error:nil];
     
 }
 
@@ -146,10 +146,7 @@
         }
         
         // Remove row from table view
-    
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-//         [self.tableView reloadData];
 
     }
     
